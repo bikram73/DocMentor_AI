@@ -330,10 +330,4 @@ DocMentor AI comes pre-loaded with comprehensive sample medical documents:
 
 Distributed under the **MIT License**. See `LICENSE` for details.
 
----
 
-<div align="center">
-
-Built with ❤️ by **DocMentor AI Team** using **Google Gemini AI**.
-
-</div>
