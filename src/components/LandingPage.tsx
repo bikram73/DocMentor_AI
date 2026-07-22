@@ -318,40 +318,40 @@ export const LandingPage: React.FC<LandingPageProps> = ({
       </main>
 
       {/* Footer */}
-      <footer className="bg-surface-container-highest border-t border-outline-variant text-on-surface w-full py-12 px-6 sm:px-12 flex flex-col items-center gap-8">
+      <footer className="bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-100 w-full py-12 px-6 sm:px-12 flex flex-col items-center gap-8 transition-colors">
         <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2 space-y-3">
             <span className="text-2xl font-black text-primary block">DocMentor AI</span>
-            <p className="text-xs text-on-surface-variant max-w-sm leading-relaxed">
+            <p className="text-xs text-slate-500 dark:text-slate-400 max-w-sm leading-relaxed font-medium">
               The intelligent way to process documents. Powered by state-of-the-art Gemini AI technology.
             </p>
           </div>
 
           <div>
-            <h4 className="text-xs font-bold text-on-surface uppercase tracking-wider mb-3">Product</h4>
-            <ul className="space-y-2 text-xs text-on-surface-variant font-medium">
-              <li><button onClick={() => onNavigateTab('summary')} className="hover:underline">Pricing</button></li>
-              <li><button onClick={() => onNavigateTab('summary')} className="hover:underline">Integrations</button></li>
-              <li><button onClick={() => onNavigateTab('settings')} className="hover:underline">API Docs</button></li>
+            <h4 className="text-xs font-bold text-slate-900 dark:text-slate-200 uppercase tracking-wider mb-3">Product</h4>
+            <ul className="space-y-2 text-xs text-slate-600 dark:text-slate-400 font-medium">
+              <li><button onClick={() => onNavigateTab('summary')} className="hover:text-primary transition-colors">Pricing</button></li>
+              <li><button onClick={() => onNavigateTab('summary')} className="hover:text-primary transition-colors">Integrations</button></li>
+              <li><button onClick={() => onNavigateTab('settings')} className="hover:text-primary transition-colors">API Docs</button></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-xs font-bold text-on-surface uppercase tracking-wider mb-3">Company</h4>
-            <ul className="space-y-2 text-xs text-on-surface-variant font-medium">
-              <li><button onClick={() => onNavigateTab('settings')} className="hover:underline">About Us</button></li>
-              <li><button onClick={() => alert('Privacy Policy')} className="hover:underline">Privacy Policy</button></li>
-              <li><button onClick={() => alert('Terms of Service')} className="hover:underline">Terms of Service</button></li>
+            <h4 className="text-xs font-bold text-slate-900 dark:text-slate-200 uppercase tracking-wider mb-3">Company</h4>
+            <ul className="space-y-2 text-xs text-slate-600 dark:text-slate-400 font-medium">
+              <li><button onClick={() => onNavigateTab('settings')} className="hover:text-primary transition-colors">About Us</button></li>
+              <li><button onClick={() => alert('Privacy Policy')} className="hover:text-primary transition-colors">Privacy Policy</button></li>
+              <li><button onClick={() => alert('Terms of Service')} className="hover:text-primary transition-colors">Terms of Service</button></li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-outline-variant/40 w-full max-w-6xl pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-on-surface-variant font-medium">
+        <div className="border-t border-slate-200 dark:border-slate-800 w-full max-w-6xl pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500 dark:text-slate-400 font-medium">
           <span>© 2025 DocMentor AI. All rights reserved.</span>
           <div className="flex gap-6">
-            <button onClick={() => alert('Privacy Policy')} className="hover:underline">Privacy Policy</button>
-            <button onClick={() => alert('Terms of Service')} className="hover:underline">Terms of Service</button>
-            <button onClick={() => alert('Contact Support')} className="hover:underline">Contact Support</button>
+            <button onClick={() => alert('Privacy Policy')} className="hover:text-primary transition-colors">Privacy Policy</button>
+            <button onClick={() => alert('Terms of Service')} className="hover:text-primary transition-colors">Terms of Service</button>
+            <button onClick={() => alert('Contact Support')} className="hover:text-primary transition-colors">Contact Support</button>
           </div>
         </div>
       </footer>

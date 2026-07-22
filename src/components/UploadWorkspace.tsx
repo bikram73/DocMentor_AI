@@ -90,18 +90,18 @@ export const UploadWorkspace: React.FC<UploadWorkspaceProps> = ({
   );
 
   return (
-    <div className="min-h-screen bg-surface dark:bg-slate-950 text-on-surface flex flex-col -m-4 sm:-m-6 lg:-m-8 transition-colors">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col -m-4 sm:-m-6 lg:-m-8 transition-colors">
       
       {/* Top Navigation Bar */}
-      <nav className="bg-white/80 backdrop-blur-lg border-b border-outline-variant/30 shadow-2xs flex justify-between items-center w-full px-6 sm:px-10 py-4 sticky top-0 z-50">
+      <nav className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-lg border-b border-slate-200 dark:border-slate-800 shadow-xs flex justify-between items-center w-full px-6 sm:px-10 py-4 sticky top-0 z-50">
         <div className="flex items-center gap-8">
           <span 
             onClick={() => onNavigateTab && onNavigateTab('landing')}
-            className="text-2xl font-black text-primary tracking-tight cursor-pointer"
+            className="text-2xl font-black text-primary tracking-tight cursor-pointer hover:opacity-90 transition-opacity"
           >
             DocMentor AI
           </span>
-          <div className="hidden md:flex items-center gap-6 text-xs font-bold text-on-surface-variant">
+          <div className="hidden md:flex items-center gap-6 text-xs font-bold text-slate-600 dark:text-slate-300">
             <button onClick={() => onNavigateTab && onNavigateTab('landing')} className="hover:text-primary transition-colors">Home</button>
             <button onClick={() => onNavigateTab && onNavigateTab('summary')} className="hover:text-primary transition-colors">Features</button>
             <button onClick={() => onNavigateTab && onNavigateTab('upload-workspace')} className="text-primary border-b-2 border-primary pb-0.5">How It Works</button>
@@ -110,14 +110,14 @@ export const UploadWorkspace: React.FC<UploadWorkspaceProps> = ({
         </div>
 
         <div className="flex items-center gap-4">
-          <div className="hidden sm:flex items-center bg-surface-container-low px-3 py-1.5 rounded-xl border border-outline-variant/50">
-            <Search className="w-4 h-4 text-on-surface-variant shrink-0" />
+          <div className="hidden sm:flex items-center bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700">
+            <Search className="w-4 h-4 text-slate-400 shrink-0" />
             <input 
               type="text" 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search files..."
-              className="bg-transparent border-none focus:outline-none focus:ring-0 text-xs px-2 w-40 text-on-surface"
+              className="bg-transparent border-none focus:outline-none focus:ring-0 text-xs px-2 w-40 text-slate-800 dark:text-slate-100 placeholder:text-slate-400"
             />
           </div>
 
@@ -125,7 +125,7 @@ export const UploadWorkspace: React.FC<UploadWorkspaceProps> = ({
             <button
               onClick={() => setDarkMode(!darkMode)}
               title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-              className="p-2 rounded-full text-on-surface-variant hover:bg-surface-container hover:text-primary transition-all flex items-center justify-center border border-outline-variant/30"
+              className="p-2 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-primary transition-all flex items-center justify-center border border-slate-200 dark:border-slate-700"
             >
               {darkMode ? (
                 <Sun className="w-5 h-5 text-amber-400 fill-amber-400/20" />
@@ -151,8 +151,8 @@ export const UploadWorkspace: React.FC<UploadWorkspaceProps> = ({
         {/* Premium Upload Section */}
         <section className="w-full max-w-4xl flex flex-col items-center gap-6">
           <div className="text-center space-y-2">
-            <h1 className="text-4xl sm:text-5xl font-black text-on-surface tracking-tight">Upload Documents</h1>
-            <p className="text-sm sm:text-base text-on-surface-variant max-w-xl mx-auto leading-relaxed">
+            <h1 className="text-4xl sm:text-5xl font-black text-slate-900 dark:text-white tracking-tight">Upload Documents</h1>
+            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-xl mx-auto leading-relaxed">
               Bring your research to life. Drop your PDFs here and let our AI Mentor provide deep analysis and insights.
             </p>
           </div>
@@ -163,8 +163,8 @@ export const UploadWorkspace: React.FC<UploadWorkspaceProps> = ({
             onDragOver={handleDrag}
             onDrop={handleDrop}
             onClick={() => fileInputRef.current?.click()}
-            className={`w-full bg-white border-2 border-dashed rounded-[24px] p-8 sm:p-12 flex flex-col items-center justify-center transition-all duration-300 group hover:border-primary/50 cursor-pointer relative overflow-hidden shadow-2xs ${
-              dragActive ? 'border-primary bg-primary/5 scale-[1.01]' : 'border-outline-variant/70'
+            className={`w-full bg-white dark:bg-slate-900 border-2 border-dashed rounded-[24px] p-8 sm:p-12 flex flex-col items-center justify-center transition-all duration-300 group hover:border-primary/50 cursor-pointer relative overflow-hidden shadow-xs ${
+              dragActive ? 'border-primary bg-primary/5 scale-[1.01]' : 'border-slate-300 dark:border-slate-700'
             }`}
           >
             {/* Corner Decorative Glows */}
@@ -180,14 +180,14 @@ export const UploadWorkspace: React.FC<UploadWorkspaceProps> = ({
             />
 
             <div className="z-10 flex flex-col items-center text-center">
-              <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform duration-300">
+              <div className="w-20 h-20 bg-blue-50 dark:bg-blue-950/50 rounded-2xl flex items-center justify-center mb-6 text-primary border border-blue-100 dark:border-blue-900/50 group-hover:scale-110 transition-transform duration-300">
                 <Upload className="w-10 h-10 text-primary" />
               </div>
 
-              <h3 className="text-xl font-bold text-on-surface mb-1">Drag and drop your files</h3>
-              <p className="text-xs sm:text-sm text-on-surface-variant mb-6 text-center">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1">Drag and drop your files</h3>
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mb-6 text-center">
                 Upload PDFs, Research Papers, or Technical Docs<br />
-                <span className="text-[10px] opacity-60 font-semibold">Maximum file size: 50MB</span>
+                <span className="text-[10px] text-slate-400 dark:text-slate-400 font-semibold">Maximum file size: 50MB</span>
               </p>
 
               <button 
@@ -199,13 +199,13 @@ export const UploadWorkspace: React.FC<UploadWorkspaceProps> = ({
                 <span>{isAnalyzing ? 'Analyzing File...' : 'Choose File'}</span>
               </button>
 
-              <div className="mt-8 flex items-center gap-6 text-xs text-on-surface-variant opacity-75 font-medium">
+              <div className="mt-8 flex items-center gap-6 text-xs text-slate-500 dark:text-slate-400 font-medium">
                 <div className="flex items-center gap-1.5">
                   <FileText className="w-4 h-4 text-primary" />
                   <span>PDF Only</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <Lock className="w-4 h-4 text-tertiary" />
+                  <Lock className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                   <span>Private & Encrypted</span>
                 </div>
               </div>
@@ -214,16 +214,16 @@ export const UploadWorkspace: React.FC<UploadWorkspaceProps> = ({
         </section>
 
         {/* Manual Direct Paste Option */}
-        <section className="w-full max-w-4xl bg-white border border-outline-variant/40 rounded-2xl p-6 space-y-4 shadow-2xs">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-outline-variant/30 pb-3">
-            <h3 className="text-xs font-bold text-on-surface flex items-center gap-2">
+        <section className="w-full max-w-4xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 space-y-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-3">
+            <h3 className="text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
               <FileText className="w-4 h-4 text-primary" />
               <span>Or Paste Clinical / Report Text Content</span>
             </h3>
             <select 
               value={docType}
               onChange={(e) => setDocType(e.target.value)}
-              className="bg-surface-container-low border border-outline-variant rounded-xl px-3 py-1.5 text-xs font-bold text-on-surface focus:outline-none"
+              className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-1.5 text-xs font-bold text-slate-700 dark:text-slate-200 focus:outline-none"
             >
               <option value="lab_report">Lab Report (Blood / Lipid Panel)</option>
               <option value="imaging_scan">Radiology Scan (MRI / CT / Ultrasound)</option>
@@ -237,13 +237,13 @@ export const UploadWorkspace: React.FC<UploadWorkspaceProps> = ({
               value={pasteText}
               onChange={(e) => setOriginalText(e.target.value)}
               placeholder="Paste raw document text here for real-time analysis..."
-              className="w-full h-24 bg-surface-container-low border border-outline-variant/60 rounded-xl p-3 text-xs text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary/20 resize-none font-mono"
+              className="w-full h-24 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl p-3 text-xs text-slate-800 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 resize-none font-mono"
             />
 
             <button
               type="submit"
               disabled={isAnalyzing || !pasteText.trim()}
-              className="px-6 py-2.5 bg-primary text-white rounded-xl text-xs font-bold flex items-center gap-2 hover:opacity-90 disabled:opacity-40 transition-all shadow-2xs"
+              className="px-6 py-2.5 bg-primary text-white rounded-xl text-xs font-bold flex items-center gap-2 hover:opacity-90 disabled:opacity-40 transition-all shadow-xs"
             >
               {isAnalyzing ? <RotateCw className="w-4 h-4 animate-spin" /> : <Sparkles className="w-4 h-4" />}
               <span>Analyze Text</span>
@@ -255,8 +255,8 @@ export const UploadWorkspace: React.FC<UploadWorkspaceProps> = ({
         <section className="w-full max-w-6xl space-y-6">
           <div className="flex justify-between items-end px-1">
             <div>
-              <h2 className="text-2xl font-bold text-on-surface">Recent Workspace</h2>
-              <p className="text-xs text-on-surface-variant mt-0.5">Your recently analyzed and active documents</p>
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Recent Workspace</h2>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Your recently analyzed and active documents</p>
             </div>
             <button 
               onClick={() => onNavigateTab && onNavigateTab('summary')}
@@ -270,20 +270,20 @@ export const UploadWorkspace: React.FC<UploadWorkspaceProps> = ({
             
             {/* Active Upload Card Demo */}
             {isAnalyzing && (
-              <div className="bg-white border-2 border-primary/40 rounded-2xl p-5 shadow-2xs space-y-4">
+              <div className="bg-white dark:bg-slate-900 border-2 border-primary/40 rounded-2xl p-5 shadow-xs space-y-4">
                 <div className="flex items-start gap-4">
-                  <div className="w-14 h-18 bg-primary/5 rounded-xl border border-primary/20 flex items-center justify-center shrink-0">
+                  <div className="w-14 h-18 bg-blue-50 dark:bg-slate-800 rounded-xl border border-blue-100 dark:border-slate-700 flex items-center justify-center shrink-0">
                     <RotateCw className="w-6 h-6 text-primary animate-spin" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h4 className="text-xs font-bold text-on-surface truncate">Analyzing New Document...</h4>
-                    <p className="text-[10px] text-on-surface-variant mt-1">Processing layout & terminology...</p>
+                    <h4 className="text-xs font-bold text-slate-900 dark:text-slate-100 truncate">Analyzing New Document...</h4>
+                    <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-1">Processing layout & terminology...</p>
                     <div className="mt-3">
                       <div className="flex justify-between text-[10px] font-bold mb-1">
                         <span className="text-primary">72%</span>
-                        <span className="text-on-surface-variant italic">Analyzing structure...</span>
+                        <span className="text-slate-400 italic">Analyzing structure...</span>
                       </div>
-                      <div className="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+                      <div className="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-1.5 overflow-hidden">
                         <div className="bg-primary h-full transition-all duration-300" style={{ width: '72%' }}></div>
                       </div>
                     </div>
@@ -295,23 +295,23 @@ export const UploadWorkspace: React.FC<UploadWorkspaceProps> = ({
             {/* Static Mock Item 1 */}
             <div 
               onClick={() => onNavigateTab && onNavigateTab('summary')}
-              className="bg-white border border-outline-variant/50 rounded-2xl p-5 shadow-2xs hover:shadow-md transition-all cursor-pointer group space-y-3"
+              className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-xs hover:shadow-md hover:border-primary/40 transition-all cursor-pointer group space-y-3"
             >
               <div className="flex items-start gap-4">
-                <div className="w-14 h-18 bg-surface-container-low rounded-xl border border-outline-variant overflow-hidden shrink-0 group-hover:scale-105 transition-transform flex items-center justify-center bg-primary/5">
+                <div className="w-14 h-18 bg-blue-50 dark:bg-slate-800 rounded-xl border border-blue-100 dark:border-slate-700 overflow-hidden shrink-0 group-hover:scale-105 transition-transform flex items-center justify-center">
                   <FileText className="w-7 h-7 text-primary" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex justify-between items-start">
-                    <h4 className="text-xs font-bold text-on-surface truncate pr-2 group-hover:text-primary transition-colors">
+                    <h4 className="text-xs font-bold text-slate-900 dark:text-slate-100 truncate pr-2 group-hover:text-primary transition-colors">
                       Quantum_Computing.pdf
                     </h4>
-                    <MoreVertical className="w-4 h-4 text-outline opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <MoreVertical className="w-4 h-4 text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
-                  <p className="text-[10px] text-on-surface-variant mt-1">1.8 MB • Analyzed 2h ago</p>
+                  <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-1">1.8 MB • Analyzed 2h ago</p>
                   <div className="mt-3 flex gap-1.5">
-                    <span className="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[9px] font-bold rounded uppercase tracking-wider">PHYSICS</span>
-                    <span className="px-2 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed text-[9px] font-bold rounded uppercase tracking-wider">COMPLEX</span>
+                    <span className="px-2 py-0.5 bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200/60 dark:border-blue-800/60 text-[9px] font-bold rounded uppercase tracking-wider">PHYSICS</span>
+                    <span className="px-2 py-0.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-[9px] font-bold rounded uppercase tracking-wider">COMPLEX</span>
                   </div>
                 </div>
               </div>
@@ -320,23 +320,23 @@ export const UploadWorkspace: React.FC<UploadWorkspaceProps> = ({
             {/* Static Mock Item 2 */}
             <div 
               onClick={() => onNavigateTab && onNavigateTab('summary')}
-              className="bg-white border border-outline-variant/50 rounded-2xl p-5 shadow-2xs hover:shadow-md transition-all cursor-pointer group space-y-3"
+              className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-xs hover:shadow-md hover:border-primary/40 transition-all cursor-pointer group space-y-3"
             >
               <div className="flex items-start gap-4">
-                <div className="w-14 h-18 bg-surface-container-low rounded-xl border border-outline-variant overflow-hidden shrink-0 group-hover:scale-105 transition-transform flex items-center justify-center bg-tertiary/5">
-                  <FileText className="w-7 h-7 text-tertiary" />
+                <div className="w-14 h-18 bg-emerald-50 dark:bg-slate-800 rounded-xl border border-emerald-100 dark:border-slate-700 overflow-hidden shrink-0 group-hover:scale-105 transition-transform flex items-center justify-center">
+                  <FileText className="w-7 h-7 text-emerald-600 dark:text-emerald-400" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex justify-between items-start">
-                    <h4 className="text-xs font-bold text-on-surface truncate pr-2 group-hover:text-primary transition-colors">
+                    <h4 className="text-xs font-bold text-slate-900 dark:text-slate-100 truncate pr-2 group-hover:text-primary transition-colors">
                       Architecture_Trends.pdf
                     </h4>
-                    <MoreVertical className="w-4 h-4 text-outline opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <MoreVertical className="w-4 h-4 text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
-                  <p className="text-[10px] text-on-surface-variant mt-1">5.2 MB • Analyzed 1d ago</p>
+                  <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-1">5.2 MB • Analyzed 1d ago</p>
                   <div className="mt-3 flex gap-1.5">
-                    <span className="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[9px] font-bold rounded uppercase tracking-wider">DESIGN</span>
-                    <span className="px-2 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed text-[9px] font-bold rounded uppercase tracking-wider">VISUAL</span>
+                    <span className="px-2 py-0.5 bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800/60 text-[9px] font-bold rounded uppercase tracking-wider">DESIGN</span>
+                    <span className="px-2 py-0.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-[9px] font-bold rounded uppercase tracking-wider">VISUAL</span>
                   </div>
                 </div>
               </div>
@@ -347,25 +347,25 @@ export const UploadWorkspace: React.FC<UploadWorkspaceProps> = ({
               <div
                 key={doc.id}
                 onClick={() => onSelectDoc(doc)}
-                className="bg-white border border-outline-variant/50 rounded-2xl p-5 shadow-2xs hover:shadow-md transition-all cursor-pointer group space-y-3"
+                className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-xs hover:shadow-md hover:border-primary/40 transition-all cursor-pointer group space-y-3"
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-14 h-18 bg-surface-container-low rounded-xl border border-outline-variant overflow-hidden shrink-0 group-hover:scale-105 transition-transform flex items-center justify-center bg-primary/5">
+                  <div className="w-14 h-18 bg-blue-50 dark:bg-slate-800 rounded-xl border border-blue-100 dark:border-slate-700 overflow-hidden shrink-0 group-hover:scale-105 transition-transform flex items-center justify-center">
                     <FileText className="w-7 h-7 text-primary" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex justify-between items-start">
-                      <h4 className="text-xs font-bold text-on-surface truncate pr-2 group-hover:text-primary transition-colors">
+                      <h4 className="text-xs font-bold text-slate-900 dark:text-slate-100 truncate pr-2 group-hover:text-primary transition-colors">
                         {doc.title}
                       </h4>
-                      <MoreVertical className="w-4 h-4 text-outline opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <MoreVertical className="w-4 h-4 text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity" />
                     </div>
-                    <p className="text-[10px] text-on-surface-variant mt-1">Uploaded {doc.uploadDate} • Patient: {doc.patientName}</p>
+                    <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-1">Uploaded {doc.uploadDate} • Patient: {doc.patientName}</p>
                     <div className="mt-3 flex gap-1.5">
-                      <span className="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[9px] font-bold rounded uppercase tracking-wider">
+                      <span className="px-2 py-0.5 bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200/60 dark:border-blue-800/60 text-[9px] font-bold rounded uppercase tracking-wider">
                         {doc.type.replace('_', ' ')}
                       </span>
-                      <span className="px-2 py-0.5 bg-emerald-500/10 text-emerald-700 text-[9px] font-bold rounded uppercase">
+                      <span className="px-2 py-0.5 bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800/60 text-[9px] font-bold rounded uppercase">
                         ACTIVE
                       </span>
                     </div>
@@ -380,14 +380,14 @@ export const UploadWorkspace: React.FC<UploadWorkspaceProps> = ({
       </main>
 
       {/* Global Footer */}
-      <footer className="bg-surface-container-highest border-t border-outline-variant w-full py-10 flex flex-col items-center gap-4 text-xs text-on-surface-variant font-medium mt-auto">
+      <footer className="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 w-full py-10 flex flex-col items-center gap-4 text-xs text-slate-500 dark:text-slate-400 font-medium mt-auto transition-colors">
         <span className="text-xl font-black text-primary">DocMentor AI</span>
         <div className="flex gap-6">
-          <button onClick={() => alert('Privacy Policy')} className="hover:underline">Privacy Policy</button>
-          <button onClick={() => alert('Terms of Service')} className="hover:underline">Terms of Service</button>
-          <button onClick={() => alert('Contact Support')} className="hover:underline">Contact Support</button>
+          <button onClick={() => alert('Privacy Policy')} className="hover:text-primary transition-colors">Privacy Policy</button>
+          <button onClick={() => alert('Terms of Service')} className="hover:text-primary transition-colors">Terms of Service</button>
+          <button onClick={() => alert('Contact Support')} className="hover:text-primary transition-colors">Contact Support</button>
         </div>
-        <p className="opacity-60">© 2025 DocMentor AI. All rights reserved.</p>
+        <p className="text-slate-400 dark:text-slate-500 text-[11px]">© 2025 DocMentor AI. All rights reserved.</p>
       </footer>
 
     </div>
