@@ -14,6 +14,9 @@ import {
 import { QuizQuestion } from '../types';
 
 export const QuizGeneratorView: React.FC = () => {
+  const [questionCount, setQuestionCount] = useState<number>(5);
+  const [questionType, setQuestionType] = useState<'all' | 'mcq' | 'tf' | 'short'>('all');
+
   const [questions, setQuestions] = useState<QuizQuestion[]>([
     {
       id: 1,
@@ -29,15 +32,47 @@ export const QuizGeneratorView: React.FC = () => {
     },
     {
       id: 2,
-      question: 'On a brain MRI scan, what is the significance of Fazekas Grade 1 white matter hyperintensities?',
+      question: 'True or False: Fazekas Grade 1 white matter hyperintensities on a brain MRI indicate an acute life-threatening stroke.',
       options: [
-        { id: 'A', text: 'Critical acute brain tumor requiring immediate surgery.' },
-        { id: 'B', text: 'Mild, chronic small vessel age-related microvascular changes.' },
-        { id: 'C', text: 'Severe acute stroke in progress.' },
-        { id: 'D', text: 'Bacterial meningitis infection.' }
+        { id: 'A', text: 'True' },
+        { id: 'B', text: 'False - It represents benign, age-related microvascular changes.' }
       ],
       correctAnswerId: 'B',
-      explanation: 'Fazekas Grade 1 indicates punctate, mild microvascular changes commonly associated with aging and hypertension.'
+      explanation: 'Fazekas Grade 1 indicates punctate, mild microvascular changes commonly associated with normal aging and mild hypertension.'
+    },
+    {
+      id: 3,
+      question: 'What is the primary diagnostic significance of elevated fasting serum glucose above 126 mg/dL on two separate tests?',
+      options: [
+        { id: 'A', text: 'Fasting glucose >126 mg/dL meets criteria for Diabetes Mellitus.' },
+        { id: 'B', text: 'It indicates severe vitamin D deficiency.' },
+        { id: 'C', text: 'It confirms normal adrenal gland secretion.' },
+        { id: 'D', text: 'It rules out any metabolic disorder.' }
+      ],
+      correctAnswerId: 'A',
+      explanation: 'A fasting plasma glucose equal to or greater than 126 mg/dL confirms a diagnosis of Diabetes Mellitus.'
+    },
+    {
+      id: 4,
+      question: 'Which of the following lifestyle interventions is most recommended for early glycemic control?',
+      options: [
+        { id: 'A', text: 'Increased dietary simple sugars' },
+        { id: 'B', text: 'Low-glycemic Mediterranean dietary planning and 150 mins/week exercise' },
+        { id: 'C', text: 'Complete fluid restriction' },
+        { id: 'D', text: 'Strict bed rest for 14 days' }
+      ],
+      correctAnswerId: 'B',
+      explanation: 'Aerobic exercise and low-glycemic dietary planning significantly improve insulin sensitivity.'
+    },
+    {
+      id: 5,
+      question: 'True or False: Glycated hemoglobin (HbA1c) reflects average blood glucose levels over approximately 90 days.',
+      options: [
+        { id: 'A', text: 'True - Due to the 120-day lifespan of red blood cells.' },
+        { id: 'B', text: 'False - It only reflects blood glucose over the last 24 hours.' }
+      ],
+      correctAnswerId: 'A',
+      explanation: 'Because glucose binds non-enzymatically to hemoglobin, HbA1c measures glucose exposure across the 3-month lifespan of erythrocytes.'
     }
   ]);
 
@@ -84,6 +119,48 @@ export const QuizGeneratorView: React.FC = () => {
             <span className="text-xs text-on-surface-variant font-medium block">Current Progress</span>
             <span className="text-sm font-bold text-primary">Question {currentQIndex + 1} of {questions.length}</span>
           </div>
+        </div>
+      </div>
+
+      {/* Quiz Controls & Configuration Bar */}
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-surface-container-low p-4 rounded-2xl border border-outline-variant/40 shadow-2xs">
+        <div className="flex flex-wrap items-center gap-3">
+          <span className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Question Count:</span>
+          {[5, 10, 20].map((count) => (
+            <button
+              key={count}
+              onClick={() => setQuestionCount(count)}
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+                questionCount === count
+                  ? 'bg-primary text-white shadow-2xs'
+                  : 'bg-white dark:bg-slate-900 border border-outline-variant/50 text-on-surface hover:bg-surface-container'
+              }`}
+            >
+              {count} Questions
+            </button>
+          ))}
+        </div>
+
+        <div className="flex flex-wrap items-center gap-3">
+          <span className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Type:</span>
+          {[
+            { id: 'all', label: 'All Format' },
+            { id: 'mcq', label: 'MCQs' },
+            { id: 'tf', label: 'True / False' },
+            { id: 'short', label: 'Short Answer' }
+          ].map((fmt) => (
+            <button
+              key={fmt.id}
+              onClick={() => setQuestionType(fmt.id as any)}
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+                questionType === fmt.id
+                  ? 'bg-secondary text-white shadow-2xs'
+                  : 'bg-white dark:bg-slate-900 border border-outline-variant/50 text-on-surface hover:bg-surface-container'
+              }`}
+            >
+              {fmt.label}
+            </button>
+          ))}
         </div>
       </div>
 

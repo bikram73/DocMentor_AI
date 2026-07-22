@@ -1,4 +1,4 @@
-# 🩺 DocMentor AI — Intelligent Medical Document & Clinical Decision System
+# 📄 DocMentor AI — AI-Powered Document Assistant
 
 <div align="center">
 
@@ -13,7 +13,9 @@
 
 <br />
 
-**DocMentor AI** is an advanced full-stack AI platform designed to analyze complex medical documents (lab reports, radiologic imaging scans, discharge summaries, prescriptions), evaluate clinical symptoms for differential diagnosis, simplify complex medical jargon into 6th-grade plain language, and provide interactive 24/7 specialist AI consultation.
+> ### *"Upload. Understand. Learn. Instantly."*
+
+**DocMentor AI** is an intelligent AI-powered document assistant that transforms any uploaded PDF, research paper, contract, report, or study note into an interactive conversational assistant powered by Google Gemini 3.6 Flash.
 
 🔗 **GitHub Repository**: [https://github.com/bikram73/DocMentor_AI](https://github.com/bikram73/DocMentor_AI)
 
@@ -46,37 +48,72 @@
 
 ---
 
+<a name="overview"></a>
+## 📌 1. Project Overview
+
+### Problem Statement
+Every day, millions of students, researchers, and professionals spend hours reading lengthy PDFs such as study notes, research papers, contracts, resumes, reports, manuals, and documentation. Finding important information inside large documents is time-consuming and frustrating.
+
+Users often need to:
+- Summarize long documents quickly
+- Understand complex terms and jargon
+- Search for specific answers and insights
+- Prepare for exams and interviews
+- Extract key points and action items
+- Generate practice quizzes
+- Translate content into native languages
+
+Existing PDF readers only allow viewing static documents—they don't help users interact with or truly comprehend them.
+
+### Solution
+**DocMentor AI** transforms any uploaded PDF or image report into an intelligent conversational assistant. Users upload a document, and Gemini 3.6 Flash analyzes its content to enable:
+- 💬 **Chat with PDF**: Ask natural language questions with context-bound AI answers.
+- 📝 **AI Document Summarizer**: Generate Short, Detailed, or Bullet-point summaries.
+- 📌 **Key Points Generator**: Extract important concepts, dates, definitions, and action items.
+- 💡 **Explain Difficult Terms**: Plain-language term definitions with Beginner, Intermediate, and Expert depth levels.
+- 🎯 **Quiz Generator**: Auto-generate MCQs, True/False, and Short Answer quizzes with 5, 10, or 20 questions.
+- 🌐 **Smart Translation**: Translate extracted text into 8 major global & Indian languages (English, Hindi, Kannada, Telugu, Tamil, French, German, Spanish).
+
+---
+
 <a name="features"></a>
 ## ✨ Features
 
-### 📄 1. Multimodal Document Scanner & Analysis
-- **Drag & Drop Upload**: Supports PDF, scanned image reports (PNG/JPEG), and direct text pastes.
-- **Multimodal AI Vision Extraction**: Uses Gemini 3.6 Flash vision capabilities to extract data from dense tables, handwritten prescription notes, and diagnostic imaging scans.
-- **Biomarker Risk Tagging**: Categorizes lab metrics into `normal`, `low`, `moderate`, `high`, or `critical` risk levels with comparative reference ranges.
+### 📄 1. Upload PDF & OCR Processing
+- **Drag & Drop Upload**: Supports PDF files, scanned image reports (PNG/JPEG), and raw text.
+- **Auto Image Optimization**: Client-side canvas compression ensures ultra-fast API uploads under Netlify and Cloud Run payload limits.
+- **Multimodal AI Vision Extraction**: Uses Gemini 3.6 Flash vision capabilities to parse tables, dense typography, and diagnostic scans.
 
-### 🧠 2. Dynamic Clinical Summarizer & Layman Explanation
-- **Dual Summary Engine**: Delivers a technical medical summary for clinical professionals alongside a plain-language explanation for patients.
-- **Key Takeaways & Recommendations**: Provides actionable clinical next steps and structured questions for doctor appointments.
+### 📝 2. AI Document Summarizer
+- **Short Summary**: Executive summary for high-level overviews.
+- **Detailed Summary**: Section-by-section breakdown for deep understanding.
+- **Bullet Summary**: Concise bulleted key takeaways.
 
-### 🩺 3. Differential Diagnosis & Symptom Triage
-- **Clinical Triage Classification**: Evaluates patient symptoms, age, gender, and vital signs to output triage urgency (`Emergency (911)`, `Urgent Care`, `Routine Visit`, `Self Care`).
-- **ICD-10 Coded Differentials**: Outputs ranked diagnostic probabilities with matching symptoms, severity ratings, ICD-10 diagnostic codes, and suggested confirmatory tests.
-- **Red Flag Alerts**: Instant safety banners for life-threatening emergency symptoms.
+### 💬 3. Chat with PDF Context
+- Ask any question regarding the uploaded document.
+- Smart auto-scroll, typing indicators, and pre-built starter questions.
+- Answers are generated strictly based on document context to prevent hallucinations.
 
-### 💬 4. Interactive AI Specialist Mentors
-- **Persona-Based AI Consultations**: Switch between distinct AI specialist personas:
-  - 🫀 **Dr. Aris Vance, MD** (Cardiovascular Specialist)
-  - 🧠 **Dr. Maya Lin, MD** (Neurology Consultant)
-  - 👶 **Dr. Sam Rivera, MD** (Pediatrician)
-- **Document Context Awareness**: The AI mentor answers user questions directly referencing the actively loaded document.
+### 📌 4. Key Points Generator
+- **Core Concepts**: Fundamental ideas and pillars.
+- **Important Dates**: Timeline events, deadlines, and history.
+- **Definitions**: Critical terms and acronyms explained.
+- **Action Items**: Checklist of recommended follow-ups.
 
-### 📖 5. Medical Jargon Translator & Glossary
-- **6th-Grade Reading Level Translation**: Transforms dense medical terminology (e.g., *SGLT2 inhibitors*, *hyperlipidemia*, *eGFR*) into clear, relatable concepts.
-- **Searchable Medical Term Glossary**: Search and filter key medical acronyms and definitions.
+### 💡 5. Explain Difficult Terms
+- Search or click any complex term or jargon.
+- Switch explanation levels dynamically: **Beginner**, **Intermediate**, **Expert / Clinical**.
 
-### 📊 6. Interactive Patient Portal & Medical Quizzes
-- **Vital Sign Tracking**: Track Blood Pressure, Heart Rate, SpO2, Blood Glucose, and Body Temperature with visual trend badges.
-- **Medical Literacy Quizzes**: Interactive auto-generated quizzes based on the patient's reports to test and improve health comprehension.
+### 🎯 6. Interactive Quiz Generator
+- Generate practice quizzes from document content.
+- Configure length (**5, 10, 20 questions**) and format (**MCQs, True/False, Short Answer**).
+- Real-time score counter, option selection validation, and detailed explanation reveals.
+
+### 🌐 7. Smart Multilingual Translation
+- Instant translation into 8 languages: **English**, **Hindi (हिंदी)**, **Kannada (ಕನ್ನಡ)**, **Telugu (తెలుగు)**, **Tamil (தமிழ்)**, **French (Français)**, **German (Deutsch)**, and **Spanish (Español)**.
+
+### 🩺 8. AI Mentor & Specialist Consultation
+- Persona-based AI consultation mode with specialist personas (Cardiovascular, Neurology, Pediatrics) for medical report deep dives.
 
 ---
 
@@ -86,21 +123,21 @@
 ### 💻 Frontend Architecture
 - **Language**: TypeScript 5.8
 - **Framework**: React 19 (Vite SPA)
-- **Styling**: Tailwind CSS v4, Custom CSS Variables
+- **Styling**: Tailwind CSS v4, Custom Design Tokens
 - **Animations**: Motion (`motion/react`)
 - **Icons**: Lucide React (`lucide-react`)
-- **Data Visualization**: Recharts
+- **Charts & Data Viz**: Recharts
 
-### ⚙️ Backend & API Proxy
-- **Runtime Environment**: Node.js 22
+### ⚙️ Backend & API Service
+- **Runtime**: Node.js 22
 - **Server Framework**: Express.js 4
-- **TypeScript Runner**: `tsx` (Dev) / `esbuild` (Bundled CJS Production)
-- **API Routing**: RESTful JSON API `/api/*`
+- **TypeScript Runner**: `tsx` (Dev) / `esbuild` (Production Bundle)
+- **Deployment Compatibility**: Native Express server & Netlify Serverless Functions (`serverless-http`)
 
 ### 🤖 AI Engine & SDK
-- **AI Model**: Google Gemini 3.6 Flash (`gemini-3.6-flash`)
-- **Official SDK**: `@google/genai` (Server-side execution)
-- **Schema Enforcement**: Native Gemini `responseSchema` & `responseMimeType: "application/json"`
+- **Model**: Google Gemini 3.6 Flash (`gemini-3.6-flash`)
+- **SDK**: Official `@google/genai` SDK
+- **Output Validation**: Structured JSON with `responseMimeType: "application/json"` & `responseSchema`
 
 ---
 
@@ -109,50 +146,54 @@
 
 ```
 .
-├── .env.example               # Environment variables configuration template
-├── metadata.json              # Platform application metadata & permissions
-├── package.json               # Project dependencies and npm scripts
-├── server.ts                  # Express server & Gemini AI API routes proxy
-├── vite.config.ts             # Vite build and plugin configurations
-├── tsconfig.json              # TypeScript compilation rules
-├── ARCHITECTURE.md            # In-depth architectural & system design document
+├── .env.example               # Environment variables template
+├── metadata.json              # App permissions & major capabilities metadata
+├── netlify.toml               # Netlify deployment configuration & API rewrites
+├── package.json               # Package manifests & scripts
+├── server.ts                  # Express API server & Gemini SDK handlers
+├── vite.config.ts             # Vite build configuration
+├── tsconfig.json              # TypeScript configuration
+├── ARCHITECTURE.md            # Deep-dive system architecture document
+├── netlify
+│   └── functions
+│       └── api.ts             # Serverless entry point for Netlify Functions
 └── src
-    ├── App.tsx                # Main Application shell, state & tab navigation
-    ├── main.tsx               # React application entry point
-    ├── index.css              # Global styles & Tailwind CSS directives
-    ├── types.ts               # Global TypeScript definitions & interfaces
+    ├── App.tsx                # Main App component & state hub
+    ├── main.tsx               # React entry point
+    ├── index.css              # Global CSS & Tailwind imports
+    ├── types.ts               # Global TypeScript interface definitions
     ├── data
-    │   └── mockMedicalData.ts # Sample documents, personas, and glossary
+    │   └── mockMedicalData.ts # Default documents, personas, and glossary
     └── components
-        ├── AIConsultantChat.tsx   # Interactive Specialist AI Chat
-        ├── ChatView.tsx           # General AI Health Assistant
-        ├── ClinicalSupport.tsx    # Symptom Checker & Differential Diagnosis
-        ├── DocumentScanner.tsx    # File uploader & Document Analysis View
-        ├── ExplainTermsView.tsx   # Medical Jargon Explainer
+        ├── AIConsultantChat.tsx   # Specialist Persona Chat
+        ├── ChatView.tsx           # Interactive PDF Chat Interface
+        ├── ClinicalSupport.tsx    # Symptom Triage & Differential Diagnosis
+        ├── DocumentScanner.tsx    # File Scanner & Upload
+        ├── ExplainTermsView.tsx   # Difficult Terms Explainer
         ├── JargonTranslator.tsx   # Plain-language Translator
-        ├── KeyPointsView.tsx      # Biomarkers & Key Findings Breakdown
-        ├── LandingPage.tsx        # Product Hero & Features Landing
-        ├── Navbar.tsx             # Main Header Navigation & Dark Mode Toggle
-        ├── PatientPortal.tsx      # Vitals Dashboard & Medical History
-        ├── QuizGeneratorView.tsx  # Health Literacy Quiz System
+        ├── KeyPointsView.tsx      # Key Points Breakdown
+        ├── LandingPage.tsx        # Hero Landing Page
+        ├── Navbar.tsx             # Header Navbar with DocMentor logo
+        ├── PatientPortal.tsx      # Vitals Dashboard & History
+        ├── QuizGeneratorView.tsx  # Quiz Generator System
         ├── SettingsView.tsx       # System Settings & API Status
-        ├── Sidebar.tsx            # Desktop Navigation Sidebar
-        ├── SummaryView.tsx        # Dynamic Medical Summary Canvas
-        ├── TranslateView.tsx      # Multilingual Report Translator
-        └── UploadWorkspace.tsx    # Main Document Upload Workspace
+        ├── Sidebar.tsx            # Navigation Sidebar
+        ├── SummaryView.tsx        # Multi-style Summary Canvas
+        ├── TranslateView.tsx      # Multilingual Translator
+        └── UploadWorkspace.tsx    # Document Workspace
 ```
 
 ---
 
 <a name="installation"></a>
-## 🚀 Installation & Local Setup
+## 🚀 Installation & Setup
 
 ### Prerequisites
 - **Node.js**: v18.0.0 or higher (v20+ / v22+ recommended)
 - **npm**: v9.0.0 or higher
 - **Google Gemini API Key**: Obtain a key from [Google AI Studio](https://aistudio.google.com/).
 
-### Step 1: Clone the Repository
+### Step 1: Clone Repository
 ```bash
 git clone https://github.com/bikram73/DocMentor_AI.git
 cd DocMentor_AI
@@ -163,12 +204,12 @@ cd DocMentor_AI
 npm install
 ```
 
-### Step 3: Configure Environment Variables
-Create a `.env` file in the project root based on `.env.example`:
+### Step 3: Set Environment Variables
+Create `.env` file in the root directory:
 ```bash
 cp .env.example .env
 ```
-Add your Gemini API Key in `.env`:
+Add your API Key:
 ```env
 GEMINI_API_KEY=your_google_gemini_api_key_here
 PORT=3000
@@ -178,38 +219,30 @@ PORT=3000
 ```bash
 npm run dev
 ```
-Open your browser and navigate to `http://localhost:3000`.
-
-### Step 5: Build for Production
-```bash
-npm run build
-npm start
-```
+Open your browser at `http://localhost:3000`.
 
 ---
 
 <a name="architecture"></a>
 ## 🏗️ Architecture
 
-DocMentor AI utilizes a full-stack proxy architecture where all requests containing sensitive health details or AI prompts are routed securely through server-side Express handlers to the Google Gemini API.
-
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                       React 19 Client                       │
-│    (Document Workspace / Clinical Support / Chat Interface) │
+│    (Upload Workspace / PDF Chat / Quiz / Summarizer)        │
 └──────────────────────────────┬──────────────────────────────┘
                                │ HTTP / JSON REST
                                ▼
 ┌─────────────────────────────────────────────────────────────┐
 │                    Express Backend Proxy                    │
-│      (Validates inputs, attaches server API Key)            │
+│      (Validates inputs, attaches GEMINI_API_KEY securely)   │
 └──────────────────────────────┬──────────────────────────────┘
                                │ Server-side @google/genai SDK
                                ▼
 ┌─────────────────────────────────────────────────────────────┐
 │               Google Gemini 3.6 Flash Engine                │
-│    (Structured JSON Extraction, OCR, Reasoning & Triage)    │
-└─────────────────────────────────────────────────────────────┘
+│    (Structured JSON Extraction, OCR, Reasoning & Quiz)      │
+└──────────────────────────────┴──────────────────────────────┘
 ```
 
 For full details, read our complete [ARCHITECTURE.md](./ARCHITECTURE.md) document.
@@ -219,35 +252,36 @@ For full details, read our complete [ARCHITECTURE.md](./ARCHITECTURE.md) documen
 <a name="prompt-strategy"></a>
 ## 🧠 Prompt Strategy & Anti-Hallucination
 
-1. **System Instructions**: Pre-conditions force the model to act as a board-certified clinical specialist with strict instructions on patient safety and reference ranges.
+1. **System Instructions**: Pre-conditions force the model to act as an expert document analyzer strictly constrained to the provided text.
 2. **Structured Response Schemas**: All AI calls mandate `responseMimeType: "application/json"` and strict `responseSchema` definitions, preventing unstructured output or unexpected keys.
-3. **Double Verification**: Laboratory measurements must be paired with unit measurements (`mg/dL`, `U/L`) and explicit reference bounds.
+3. **Context Grounding**: Non-document facts are explicitly flagged when missing from uploaded context.
 
 ---
 
 <a name="confidence"></a>
 ## 📊 Confidence Scores & Risk Thresholds
 
-Biomarker risk levels are mapped into normalized safety categories:
+Key document findings and biomarker risk levels are mapped into normalized categories:
 
-| Metric State | Deviation from Reference | Risk Flag Level | Recommended Action |
+| Metric State | Deviation from Reference | Risk Level | Action |
 | :--- | :--- | :--- | :--- |
-| **Within Limits** | Normal range | `normal` (Green) | Routine annual review |
-| **Mild Borderline** | < 15% outside normal | `low` / `moderate` (Yellow) | Lifestyle / Diet modification |
-| **Significantly Elevated** | > 15% outside normal | `high` (Orange) | Physician consultation within 2 weeks |
-| **Critical Threshold** | > 50% outside normal | `critical` (Red) | Urgent medical evaluation |
+| **Within Limits** | Normal range | `normal` | Standard review |
+| **Mild Borderline** | < 15% outside normal | `low` / `moderate` | Lifestyle adjustment / Monitor |
+| **Significantly Elevated** | > 15% outside normal | `high` | Follow-up review |
+| **Critical Threshold** | > 50% outside normal | `critical` | Immediate doctor attention |
 
 ---
 
 <a name="deliverables"></a>
 ## 📄 Challenge Deliverables Checklist
 
-- [x] **Full-Stack Application**: Interactive web application with React 19 & Express.
-- [x] **Document OCR & Vision Analysis**: Processes lab reports, imaging scans, and prescriptions.
-- [x] **Clinical Triage System**: ICD-10 coded differential diagnosis generator.
-- [x] **Plain Language Translator**: Converts medical jargon into 6th-grade level summaries.
-- [x] **24/7 Specialist Mentors**: Persona-based doctor consultation channels.
-- [x] **System Architecture Docs**: Comprehensive [`ARCHITECTURE.md`](./ARCHITECTURE.md).
+- [x] **Full-Stack Application**: React 19 SPA with Express backend.
+- [x] **Multimodal OCR & Vision Analysis**: Handles PDFs, images, and text notes.
+- [x] **Interactive PDF Chat**: Contextual question answering.
+- [x] **Multi-Style Summarizer**: Short, Detailed, and Bullet point summaries.
+- [x] **Quiz Generator**: Configurable length & question formats.
+- [x] **Multilingual Translator**: Support for 8 languages including Indian regional languages.
+- [x] **Architecture Documentation**: Comprehensive [`ARCHITECTURE.md`](./ARCHITECTURE.md).
 
 ---
 
@@ -255,57 +289,26 @@ Biomarker risk levels are mapped into normalized safety categories:
 ## 🌐 API Documentation
 
 ### 1. `POST /api/analyze-document`
-Analyzes a medical document (image or text) and returns structured diagnostic data.
-
-**Request Body:**
-```json
-{
-  "textContent": "Fasting Plasma Glucose: 142 mg/dL, HbA1c: 6.8%",
-  "imageBase64": "data:image/png;base64,...",
-  "documentType": "lab_report"
-}
-```
-
-**Response Output:**
-```json
-{
-  "success": true,
-  "analysis": {
-    "title": "Comprehensive Metabolic Panel",
-    "summary": "Clinical summary...",
-    "laymanExplanation": "Plain language explanation...",
-    "abnormalValues": [
-      {
-        "metricName": "Fasting Plasma Glucose",
-        "measuredValue": "142",
-        "unit": "mg/dL",
-        "referenceRange": "70 - 99 mg/dL",
-        "riskLevel": "high"
-      }
-    ]
-  }
-}
-```
+Analyzes uploaded text or image base64 and outputs structured summaries, key points, and risk metrics.
 
 ### 2. `POST /api/symptom-checker`
 Evaluates symptoms for triage urgency and differential diagnosis.
 
 ### 3. `POST /api/mentor-chat`
-Generates persona-based doctor advice in context with document data.
+Generates contextual answers and mentor advice based on document content.
 
 ### 4. `POST /api/simplify-jargon`
-Translates dense medical terminology into clear patient explanations.
+Translates complex terms into plain, easy-to-understand language.
 
 ---
 
 <a name="sample-documents"></a>
 ## 📄 Sample Documents & Extraction Results
 
-DocMentor AI comes pre-loaded with comprehensive sample medical documents:
-
-1. **Comprehensive Metabolic & Lipid Panel**: Fasting blood glucose, HbA1c, LDL cholesterol, and liver transaminase metrics.
-2. **Lumbar Spine MRI Radiologic Scan**: L4-L5 disc protrusion evaluation with nerve root impingement details.
-3. **Inpatient Hospital Discharge Summary**: Acute coronary syndrome management, stenting, and discharge prescriptions.
+DocMentor AI comes pre-loaded with sample medical and academic reports:
+1. **Comprehensive Metabolic & Lipid Panel**
+2. **Lumbar Spine MRI Scan Report**
+3. **Inpatient Hospital Discharge Summary**
 
 ---
 
@@ -313,19 +316,19 @@ DocMentor AI comes pre-loaded with comprehensive sample medical documents:
 ## ⚡ Performance Benchmarks
 
 | Operation | Average Latency | Model Used | Output Format |
-| :--- | :--- | :--- | :--- |
-| **Document OCR & Extraction** | ~1.8 seconds | Gemini 3.6 Flash | Structured JSON |
-| **Symptom Triage & Differentials** | ~1.4 seconds | Gemini 3.6 Flash | Structured JSON |
-| **Specialist Mentor Chat** | ~0.9 seconds | Gemini 3.6 Flash | Interactive JSON |
-| **Jargon Translation** | ~0.8 seconds | Gemini 3.6 Flash | Plain Language |
+-| :--- | :--- | :--- | :--- |
+| **Document OCR & Analysis** | ~1.8 seconds | Gemini 3.6 Flash | Structured JSON |
+| **PDF Chat Response** | ~0.9 seconds | Gemini 3.6 Flash | Text / JSON |
+| **Quiz Generation** | ~1.5 seconds | Gemini 3.6 Flash | Structured JSON |
+| **Language Translation** | ~0.8 seconds | Gemini 3.6 Flash | Text |
 
 ---
 
 <a name="limitations"></a>
 ## ⚠️ Known Limitations
 
-- **Image Resolution**: Extremely blurry or low-contrast camera photos of handwritten documents may require manual verification.
-- **Medical Disclaimer**: DocMentor AI is an AI assistant designed for educational support and clinical triage assistance. It is not a substitute for professional medical diagnosis or treatment.
+- **Handwritten Quality**: Very faint or extremely low-resolution physical camera photos may require clearer lighting.
+- **Educational Scope**: DocMentor AI is an AI assistant designed to aid study, comprehension, and productivity.
 
 ---
 
@@ -333,5 +336,6 @@ DocMentor AI comes pre-loaded with comprehensive sample medical documents:
 ## 📄 License
 
 Distributed under the **MIT License**. See [`LICENSE`](./LICENSE) for details.
+
 
 

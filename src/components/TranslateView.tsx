@@ -99,11 +99,13 @@ export const TranslateView: React.FC<TranslateViewProps> = () => {
             className="flex-1 max-w-[200px] bg-white dark:bg-slate-900 border border-outline-variant/60 dark:border-slate-800 rounded-xl px-4 py-2.5 text-xs font-bold text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20"
           >
             <option value="English" className="bg-white dark:bg-slate-900">English</option>
-            <option value="Spanish" className="bg-white dark:bg-slate-900">Spanish (Español)</option>
+            <option value="Hindi" className="bg-white dark:bg-slate-900">Hindi (हिंदी)</option>
+            <option value="Kannada" className="bg-white dark:bg-slate-900">Kannada (ಕನ್ನಡ)</option>
+            <option value="Telugu" className="bg-white dark:bg-slate-900">Telugu (తెలుగు)</option>
+            <option value="Tamil" className="bg-white dark:bg-slate-900">Tamil (தமிழ்)</option>
             <option value="French" className="bg-white dark:bg-slate-900">French (Français)</option>
             <option value="German" className="bg-white dark:bg-slate-900">German (Deutsch)</option>
-            <option value="Mandarin" className="bg-white dark:bg-slate-900">Mandarin (中文)</option>
-            <option value="Japanese" className="bg-white dark:bg-slate-900">Japanese (日本語)</option>
+            <option value="Spanish" className="bg-white dark:bg-slate-900">Spanish (Español)</option>
           </select>
 
           <button 
@@ -120,11 +122,13 @@ export const TranslateView: React.FC<TranslateViewProps> = () => {
             className="flex-1 max-w-[200px] bg-white dark:bg-slate-900 border border-outline-variant/60 dark:border-slate-800 rounded-xl px-4 py-2.5 text-xs font-bold text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20"
           >
             <option value="Spanish" className="bg-white dark:bg-slate-900">Spanish (Español)</option>
-            <option value="German" className="bg-white dark:bg-slate-900">German (Deutsch)</option>
+            <option value="Hindi" className="bg-white dark:bg-slate-900">Hindi (हिंदी)</option>
+            <option value="Kannada" className="bg-white dark:bg-slate-900">Kannada (ಕನ್ನಡ)</option>
+            <option value="Telugu" className="bg-white dark:bg-slate-900">Telugu (తెలుగు)</option>
+            <option value="Tamil" className="bg-white dark:bg-slate-900">Tamil (தமிழ்)</option>
             <option value="French" className="bg-white dark:bg-slate-900">French (Français)</option>
+            <option value="German" className="bg-white dark:bg-slate-900">German (Deutsch)</option>
             <option value="English" className="bg-white dark:bg-slate-900">English</option>
-            <option value="Mandarin" className="bg-white dark:bg-slate-900">Mandarin (中文)</option>
-            <option value="Japanese" className="bg-white dark:bg-slate-900">Japanese (日本語)</option>
           </select>
 
         </div>
