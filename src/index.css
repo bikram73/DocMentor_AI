@@ -112,9 +112,11 @@
 
 /* Dark Mode Overrides */
 .dark {
+  color-scheme: dark;
+
   --color-surface: #0f172a;
   --color-surface-bright: #1e293b;
-  --color-surface-dim: #0b1120;
+  --color-surface-dim: #020617;
   --color-surface-container-low: #1e293b;
   --color-surface-container: #182234;
   --color-surface-container-high: #243147;
@@ -128,34 +130,55 @@
 
   --color-secondary-container: #1e293b;
   --color-on-secondary-container: #e2e8f0;
+
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+
+.dark body {
+  background-color: #0f172a;
+  color: #f8fafc;
 }
 
 .dark .glass-card {
-  background: rgba(30, 41, 59, 0.85);
+  background: rgba(30, 41, 59, 0.85) !important;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-color: #334155;
-  color: #f8fafc;
+  border-color: #334155 !important;
+  color: #f8fafc !important;
 }
 
 .dark .glass-panel {
-  background: rgba(15, 23, 42, 0.85);
+  background: rgba(15, 23, 42, 0.85) !important;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  color: #f8fafc;
+  color: #f8fafc !important;
 }
 
-.dark .bg-white {
-  background-color: #1e293b !important;
+.dark div.bg-white,
+.dark section.bg-white,
+.dark card.bg-white {
+  background-color: #1e293b;
   color: #f8fafc;
+  border-color: #334155;
+}
+
+.dark header,
+.dark nav {
+  background-color: rgba(15, 23, 42, 0.85) !important;
+  border-color: rgba(51, 65, 85, 0.6) !important;
 }
 
 .dark .bg-\[\#F8FAFC\] {
   background-color: #0f172a !important;
 }
 
+.dark .bg-surface-container-lowest {
+  background-color: #0f172a !important;
+}
+
 .dark .text-on-surface {
-  color: #f8fafc !important;
+  color: #f8fafc;
 }
 
 .dark .border-outline-variant\/30,
@@ -163,7 +186,15 @@
 .dark .border-outline-variant\/50,
 .dark .border-outline-variant\/60,
 .dark .border-outline-variant\/70 {
-  border-color: rgba(51, 65, 85, 0.6) !important;
+  border-color: rgba(51, 65, 85, 0.6);
+}
+
+.dark input,
+.dark textarea,
+.dark select {
+  background-color: #182234;
+  color: #f8fafc;
+  border-color: #334155;
 }
 
 .dark ::-webkit-scrollbar-thumb {

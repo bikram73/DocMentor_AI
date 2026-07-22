@@ -295,11 +295,11 @@ export const LandingPage: React.FC<LandingPageProps> = ({
 
         {/* CTA Banner Section */}
         <section className="py-16 px-6 sm:px-12">
-          <div className="max-w-6xl mx-auto bg-on-surface text-surface py-16 px-8 rounded-[2.5rem] relative overflow-hidden text-center flex flex-col items-center gap-6 shadow-xl">
+          <div className="max-w-6xl mx-auto bg-slate-900 dark:bg-slate-800 border border-slate-800 dark:border-slate-700/80 text-white py-16 px-8 rounded-[2.5rem] relative overflow-hidden text-center flex flex-col items-center gap-6 shadow-xl">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
               Ready to boost your productivity?
             </h2>
-            <p className="text-sm sm:text-base text-surface-variant/80 max-w-xl font-normal">
+            <p className="text-sm sm:text-base text-slate-300 max-w-xl font-normal">
               Join thousands of students and professionals who are saving hours of reading every week.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
@@ -311,7 +311,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
               </button>
               <button 
                 onClick={() => alert('Contacting Sales Team...')}
-                className="bg-white/10 text-white border border-white/20 px-8 py-3.5 rounded-xl font-bold text-xs sm:text-sm hover:bg-white/20 transition-all"
+                className="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-3.5 rounded-xl font-bold text-xs sm:text-sm transition-all"
               >
                 Talk to Sales
               </button>
