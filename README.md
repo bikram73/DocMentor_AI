@@ -8,6 +8,7 @@
 ![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
 ![Google Gemini AI](https://img.shields.io/badge/Google_Gemini_3.6_Flash-8E75B2?style=for-the-badge&logo=google-cloud&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js_22-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](./LICENSE)
 [![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/bikram73/DocMentor_AI)
 
 <br />
@@ -331,6 +332,6 @@ DocMentor AI comes pre-loaded with comprehensive sample medical documents:
 <a name="license"></a>
 ## 📄 License
 
-Distributed under the **MIT License**. See `LICENSE` for details.
+Distributed under the **MIT License**. See [`LICENSE`](./LICENSE) for details.
 
 
