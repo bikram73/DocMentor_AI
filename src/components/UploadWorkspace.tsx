@@ -61,19 +61,81 @@ export const UploadWorkspace: React.FC<UploadWorkspaceProps> = ({
     }
   };
 
-  const handleFileSelected = (file: File) => {
-    const reader = new FileReader();
-    reader.onload = (evt) => {
-      const content = evt.target?.result as string;
-      if (file.type.startsWith('image/')) {
-        onUploadAndAnalyze(`Scanned Document Image (${file.name})`, docType, content);
-      } else {
-        onUploadAndAnalyze(content || `Extracted text from ${file.name}`, docType);
+  const compressMediaFile = (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      if (file.type === 'application/pdf' || file.name.toLowerCase().endsWith('.pdf')) {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result as string);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+        return;
       }
-    };
-    if (file.type.startsWith('image/')) {
+
+      if (file.type.startsWith('image/')) {
+        const img = new Image();
+        const url = URL.createObjectURL(file);
+        img.onload = () => {
+          URL.revokeObjectURL(url);
+          const maxDim = 1600;
+          let width = img.width;
+          let height = img.height;
+
+          if (width > maxDim || height > maxDim) {
+            if (width > height) {
+              height = Math.round((height * maxDim) / width);
+              width = maxDim;
+            } else {
+              width = Math.round((width * maxDim) / height);
+              height = maxDim;
+            }
+          }
+
+          const canvas = document.createElement('canvas');
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          if (ctx) {
+            ctx.drawImage(img, 0, 0, width, height);
+            const dataUrl = canvas.toDataURL('image/jpeg', 0.85);
+            resolve(dataUrl);
+          } else {
+            const reader = new FileReader();
+            reader.onload = () => resolve(reader.result as string);
+            reader.readAsDataURL(file);
+          }
+        };
+        img.onerror = () => {
+          URL.revokeObjectURL(url);
+          const reader = new FileReader();
+          reader.onload = () => resolve(reader.result as string);
+          reader.readAsDataURL(file);
+        };
+        img.src = url;
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = reject;
       reader.readAsDataURL(file);
+    });
+  };
+
+  const handleFileSelected = async (file: File) => {
+    const isMedia = file.type.startsWith('image/') || file.type === 'application/pdf' || file.name.toLowerCase().endsWith('.pdf');
+    if (isMedia) {
+      try {
+        const dataUrl = await compressMediaFile(file);
+        await onUploadAndAnalyze(`Uploaded Document (${file.name})`, docType, dataUrl);
+      } catch (err) {
+        console.error("Failed to read image/PDF file:", err);
+      }
     } else {
+      const reader = new FileReader();
+      reader.onload = (evt) => {
+        const content = evt.target?.result as string;
+        onUploadAndAnalyze(content || `Extracted text from ${file.name}`, docType);
+      };
       reader.readAsText(file);
     }
   };

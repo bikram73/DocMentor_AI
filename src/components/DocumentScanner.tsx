@@ -48,18 +48,54 @@ export const DocumentScanner: React.FC<DocumentScannerProps> = ({
     const file = e.target.files?.[0];
     if (!file) return;
 
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      const result = event.target?.result as string;
+    const isMedia = file.type.startsWith('image/') || file.type === 'application/pdf' || file.name.toLowerCase().endsWith('.pdf');
+
+    if (isMedia) {
       if (file.type.startsWith('image/')) {
-        setUploadedImage(result);
+        const img = new Image();
+        const url = URL.createObjectURL(file);
+        img.onload = () => {
+          URL.revokeObjectURL(url);
+          const maxDim = 1600;
+          let width = img.width;
+          let height = img.height;
+          if (width > maxDim || height > maxDim) {
+            if (width > height) {
+              height = Math.round((height * maxDim) / width);
+              width = maxDim;
+            } else {
+              width = Math.round((width * maxDim) / height);
+              height = maxDim;
+            }
+          }
+          const canvas = document.createElement('canvas');
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          if (ctx) {
+            ctx.drawImage(img, 0, 0, width, height);
+            setUploadedImage(canvas.toDataURL('image/jpeg', 0.85));
+          } else {
+            const reader = new FileReader();
+            reader.onload = (evt) => setUploadedImage(evt.target?.result as string);
+            reader.readAsDataURL(file);
+          }
+        };
+        img.onerror = () => {
+          URL.revokeObjectURL(url);
+          const reader = new FileReader();
+          reader.onload = (evt) => setUploadedImage(evt.target?.result as string);
+          reader.readAsDataURL(file);
+        };
+        img.src = url;
       } else {
-        setInputText(result);
+        const reader = new FileReader();
+        reader.onload = (evt) => setUploadedImage(evt.target?.result as string);
+        reader.readAsDataURL(file);
       }
-    };
-    if (file.type.startsWith('image/')) {
-      reader.readAsDataURL(file);
     } else {
+      const reader = new FileReader();
+      reader.onload = (event) => setInputText(event.target?.result as string);
       reader.readAsText(file);
     }
   };

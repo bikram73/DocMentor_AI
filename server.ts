@@ -66,10 +66,20 @@ Provide structured response strictly following the JSON schema:`;
     const contentsParts: Array<any> = [];
 
     if (imageBase64) {
-      const cleanBase64 = imageBase64.replace(/^data:image\/\w+;base64,/, "");
+      let mimeType = "image/png";
+      let cleanBase64 = imageBase64;
+
+      const matches = imageBase64.match(/^data:([^;]+);base64,(.*)$/);
+      if (matches) {
+        mimeType = matches[1];
+        cleanBase64 = matches[2];
+      } else {
+        cleanBase64 = imageBase64.replace(/^data:[^;]+;base64,/, "");
+      }
+
       contentsParts.push({
         inlineData: {
-          mimeType: "image/png",
+          mimeType,
           data: cleanBase64,
         },
       });
