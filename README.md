@@ -188,6 +188,32 @@ npm start
 
 ---
 
+### 🌐 Deploying to Netlify
+
+This project is pre-configured with `netlify.toml` and serverless Netlify Functions (`netlify/functions/api.ts`) for seamless deployment on **Netlify**.
+
+#### Option A: Netlify Dashboard (Recommended)
+1. Push your repository to GitHub: `https://github.com/bikram73/DocMentor_AI`.
+2. Log in to [Netlify](https://app.netlify.com/) and click **Add new site > Import an existing project**.
+3. Select **GitHub** and connect your `bikram73/DocMentor_AI` repository.
+4. Netlify will automatically load configuration from `netlify.toml`:
+   - **Build Command**: `npm run build`
+   - **Publish directory**: `dist`
+   - **Functions directory**: `netlify/functions`
+5. Under **Site Settings > Environment Variables**, add:
+   - Key: `GEMINI_API_KEY` | Value: *Your Google Gemini API Key*
+6. Click **Deploy site**.
+
+#### Option B: Netlify CLI
+```bash
+npm install -g netlify-cli
+netlify login
+netlify init
+netlify deploy --prod
+```
+
+---
+
 <a name="architecture"></a>
 ## 🏗️ Architecture
 

@@ -27,8 +27,12 @@ const getAiClient = () => {
   });
 };
 
+// Create router for API endpoints to support Express server and Netlify Functions
+const apiRouter = express.Router();
+apiRouter.use(express.json({ limit: "25mb" }));
+
 // Health Check API
-app.get("/api/health", (req, res) => {
+apiRouter.get("/health", (req, res) => {
   res.json({
     status: "ok",
     hasApiKey: Boolean(process.env.GEMINI_API_KEY),
@@ -37,7 +41,7 @@ app.get("/api/health", (req, res) => {
 });
 
 // Document Analysis Endpoint
-app.post("/api/analyze-document", async (req, res) => {
+apiRouter.post("/analyze-document", async (req, res) => {
   try {
     const { textContent, imageBase64, documentType } = req.body;
 
@@ -133,7 +137,7 @@ Provide structured response strictly following the JSON schema:`;
 });
 
 // Symptom Checker & Differential Diagnosis Endpoint
-app.post("/api/symptom-checker", async (req, res) => {
+apiRouter.post("/symptom-checker", async (req, res) => {
   try {
     const { symptoms, age, gender, vitals, medicalHistory } = req.body;
 
@@ -211,7 +215,7 @@ Analyze symptoms and generate clinical decision output strictly adhering to JSON
 });
 
 // Interactive Mentor & Specialist Chat Endpoint
-app.post("/api/mentor-chat", async (req, res) => {
+apiRouter.post("/mentor-chat", async (req, res) => {
   try {
     const { messages, doctorPersonaId, documentContext } = req.body;
 
@@ -275,7 +279,7 @@ Include a disclaimer that AI consultation is for educational and informational s
 });
 
 // Simplify Medical Jargon Endpoint
-app.post("/api/simplify-jargon", async (req, res) => {
+apiRouter.post("/simplify-jargon", async (req, res) => {
   try {
     const { medicalText } = req.body;
     if (!medicalText) {
@@ -323,7 +327,19 @@ app.post("/api/simplify-jargon", async (req, res) => {
   }
 });
 
+// Register router under all potential prefixes for local dev and Netlify functions
+app.use("/api", apiRouter);
+app.use("/.netlify/functions/api", apiRouter);
+app.use("/", apiRouter);
+
+export default app;
+export { app };
+
 async function startServer() {
+  if (process.env.NETLIFY || process.env.LAMBDA_TASK_ROOT) {
+    return; // Do not start HTTP server in Netlify serverless execution
+  }
+
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({
       server: { middlewareMode: true },
