@@ -37,13 +37,31 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <header className="h-[72px] sticky top-0 z-40 flex items-center justify-between px-6 sm:px-8 bg-white/90 dark:bg-slate-900/90 backdrop-blur-lg border-b border-slate-200 dark:border-slate-800 shadow-xs transition-colors">
       
-      {/* Title & Context */}
+      {/* Title & Context Logo */}
       <div className="flex items-center gap-3">
-        <div className="flex items-center gap-2.5">
-          <Sparkles className="w-5 h-5 text-primary shrink-0" />
-          <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 truncate max-w-xs sm:max-w-md">
-            {getTabTitle()}
-          </h2>
+        <div 
+          onClick={() => onNavigateTab ? onNavigateTab('landing') : undefined}
+          className="flex items-center gap-3 cursor-pointer group"
+          title="Go to DocMentor AI Home"
+        >
+          {/* Branded Medical AI Emblem Logo */}
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-600 via-blue-600 to-indigo-600 flex items-center justify-center text-white shadow-sm shrink-0 group-hover:scale-105 transition-transform border border-white/20">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5">
+              <path d="M30 25C30 22.2386 32.2386 20 35 20H55L70 35V75C70 77.7614 67.7614 80 65 80H35C32.2386 80 30 77.7614 30 75V25Z" fill="white" fillOpacity="0.2" stroke="white" strokeWidth="5" strokeLinejoin="round" />
+              <path d="M55 20V35H70" stroke="white" strokeWidth="5" strokeLinejoin="round" fill="none" />
+              <path d="M50 43V63M40 53H60" stroke="white" strokeWidth="7" strokeLinecap="round" />
+              <circle cx="70" cy="28" r="4.5" fill="#FDE047" />
+            </svg>
+          </div>
+          <div className="flex flex-col">
+            <div className="flex items-center gap-1.5">
+              <span className="text-[11px] font-black text-primary tracking-wider uppercase leading-none">DocMentor AI</span>
+              <span className="text-[9px] px-1.5 py-0.2 font-bold rounded-full bg-primary/10 text-primary border border-primary/20">Pro</span>
+            </div>
+            <h2 className="text-sm sm:text-base font-bold text-slate-900 dark:text-slate-100 truncate max-w-xs sm:max-w-md leading-snug">
+              {getTabTitle()}
+            </h2>
+          </div>
         </div>
       </div>
 
