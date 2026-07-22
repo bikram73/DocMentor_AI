@@ -34,10 +34,10 @@ export const LandingPage: React.FC<LandingPageProps> = ({
   setDarkMode
 }) => {
   return (
-    <div className="bg-surface text-on-surface font-sans selection:bg-primary/20 min-h-screen flex flex-col">
+    <div className="bg-surface dark:bg-slate-950 text-on-surface dark:text-slate-100 font-sans selection:bg-primary/20 min-h-screen flex flex-col">
       
       {/* Top Navigation Bar */}
-      <header className="bg-white/80 backdrop-blur-lg border-b border-outline-variant/30 shadow-2xs flex justify-between items-center w-full px-6 sm:px-10 py-4 sticky top-0 z-50">
+      <header className="bg-white/80 dark:bg-slate-900/90 backdrop-blur-lg border-b border-outline-variant/30 dark:border-slate-800 shadow-2xs flex justify-between items-center w-full px-6 sm:px-10 py-4 sticky top-0 z-50 transition-colors">
         <div className="flex items-center gap-8">
           <div 
             onClick={() => onNavigateTab('landing')} 
@@ -49,11 +49,11 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             <span className="font-extrabold text-2xl text-primary tracking-tight">DocMentor AI</span>
           </div>
 
-          <nav className="hidden md:flex items-center gap-8 text-xs font-bold text-on-surface-variant">
-            <button onClick={() => onNavigateTab('landing')} className="text-primary border-b-2 border-primary pb-0.5">Home</button>
-            <button onClick={() => onNavigateTab('summary')} className="hover:text-primary transition-colors">Features</button>
-            <button onClick={() => onNavigateTab('upload-workspace')} className="hover:text-primary transition-colors">How It Works</button>
-            <button onClick={() => onNavigateTab('settings')} className="hover:text-primary transition-colors">About</button>
+          <nav className="hidden md:flex items-center gap-8 text-xs font-bold text-on-surface-variant dark:text-slate-300">
+            <button onClick={() => onNavigateTab('landing')} className="text-primary border-b-2 border-primary pb-0.5 cursor-pointer">Home</button>
+            <button onClick={() => onNavigateTab('summary')} className="hover:text-primary transition-colors cursor-pointer">Features</button>
+            <button onClick={() => onNavigateTab('upload-workspace')} className="hover:text-primary transition-colors cursor-pointer">How It Works</button>
+            <button onClick={() => onNavigateTab('settings')} className="hover:text-primary transition-colors cursor-pointer">About</button>
           </nav>
         </div>
 
@@ -62,7 +62,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             <button
               onClick={() => setDarkMode(!darkMode)}
               title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-              className="p-2 rounded-full text-on-surface-variant hover:bg-surface-container hover:text-primary transition-all flex items-center justify-center border border-outline-variant/30"
+              className="p-2 rounded-full text-on-surface-variant dark:text-slate-300 hover:bg-surface-container dark:hover:bg-slate-800 hover:text-primary transition-all flex items-center justify-center border border-outline-variant/30 dark:border-slate-700 cursor-pointer"
             >
               {darkMode ? (
                 <Sun className="w-5 h-5 text-amber-400 fill-amber-400/20" />
