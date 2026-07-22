@@ -153,7 +153,7 @@ export const ChatView: React.FC<ChatViewProps> = ({ document, onSendMessage }) =
               
               <div className={`p-5 rounded-2xl text-sm leading-relaxed ${
                 msg.sender === 'user'
-                  ? 'bg-[#0F172A] text-white rounded-tr-none shadow-md font-medium'
+                  ? 'bg-primary text-white rounded-tr-none shadow-xs font-medium'
                   : 'ai-bubble-gradient border border-outline-variant/60 text-on-surface rounded-tl-none shadow-xs'
               }`}>
                 {msg.sender === 'mentor' && (

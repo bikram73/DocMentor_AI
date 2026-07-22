@@ -8,6 +8,7 @@ interface NavbarProps {
   setSearchQuery: (q: string) => void;
   darkMode?: boolean;
   setDarkMode?: (val: boolean) => void;
+  onNavigateTab?: (tab: string) => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ 
@@ -16,7 +17,8 @@ export const Navbar: React.FC<NavbarProps> = ({
   searchQuery, 
   setSearchQuery,
   darkMode = false,
-  setDarkMode
+  setDarkMode,
+  onNavigateTab
 }) => {
   const getTabTitle = () => {
     switch(activeTab) {
@@ -37,7 +39,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       
       {/* Title & Context */}
       <div className="flex items-center gap-3">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2.5">
           <Sparkles className="w-5 h-5 text-primary shrink-0" />
           <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 truncate max-w-xs sm:max-w-md">
             {getTabTitle()}

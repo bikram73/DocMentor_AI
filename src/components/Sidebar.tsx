@@ -44,13 +44,16 @@ export const Sidebar: React.FC<SidebarProps> = ({
     <aside className="h-screen w-[280px] fixed left-0 top-0 bg-surface-container-low border-r border-outline-variant flex flex-col p-4 gap-2 z-50 overflow-y-auto">
       
       {/* Brand Header */}
-      <div className="flex items-center gap-3 px-2 py-3 mb-2">
-        <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white shadow-sm shrink-0">
+      <div 
+        onClick={() => setActiveTab('landing')}
+        className="flex items-center gap-3 px-2 py-3 mb-2 cursor-pointer hover:opacity-90 transition-opacity"
+      >
+        <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white shadow-xs shrink-0">
           <Sparkles className="w-6 h-6 text-white" />
         </div>
         <div>
           <h1 className="text-xl font-black text-primary leading-tight tracking-tight">DocMentor AI</h1>
-          <p className="text-xs text-on-surface-variant font-medium opacity-75">Document & Medical Analysis</p>
+          <p className="text-xs text-slate-500 dark:text-slate-400 font-medium opacity-80">Document & Medical Analysis</p>
         </div>
       </div>
 

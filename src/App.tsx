@@ -150,6 +150,7 @@ export default function App() {
           setSearchQuery={setSearchQuery}
           darkMode={darkMode}
           setDarkMode={setDarkMode}
+          onNavigateTab={setActiveTab}
         />
 
         {/* Tab Content Stage */}

@@ -93,20 +93,20 @@ export const DocumentScanner: React.FC<DocumentScannerProps> = ({
     <div className="space-y-6">
       
       {/* Top Banner / Sample Selectors */}
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-md">
+      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-xs">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-4">
           <div>
             <div className="flex items-center space-x-2">
-              <Sparkles className="w-5 h-5 text-teal-400" />
-              <h2 className="text-lg font-bold text-white">Medical Document AI Analyzer</h2>
+              <Sparkles className="w-5 h-5 text-primary" />
+              <h2 className="text-lg font-bold text-slate-900 dark:text-white">Medical Document AI Analyzer</h2>
             </div>
-            <p className="text-xs text-slate-400 mt-1">
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
               Upload blood tests, imaging reports, prescriptions, or discharge summaries for immediate AI extraction.
             </p>
           </div>
 
           <div className="flex items-center space-x-2 w-full md:w-auto">
-            <span className="text-xs text-slate-400 font-medium whitespace-nowrap">Load Sample Report:</span>
+            <span className="text-xs text-slate-500 dark:text-slate-400 font-medium whitespace-nowrap">Load Sample Report:</span>
             <div className="flex flex-wrap gap-2">
               {documents.slice(0, 3).map((doc) => (
                 <button
@@ -114,8 +114,8 @@ export const DocumentScanner: React.FC<DocumentScannerProps> = ({
                   onClick={() => onSelectDoc(doc)}
                   className={`text-xs px-3 py-1.5 rounded-xl border font-medium transition-all ${
                     activeDoc?.id === doc.id
-                      ? 'bg-teal-500/20 text-teal-300 border-teal-500/50 ring-2 ring-teal-500/20'
-                      : 'bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700'
+                      ? 'bg-blue-50 dark:bg-blue-950/50 text-primary border-blue-200 dark:border-blue-800 ring-2 ring-primary/20'
+                      : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700'
                   }`}
                 >
                   {doc.title.split(' ')[0]} {doc.title.split(' ')[1]}
@@ -129,12 +129,12 @@ export const DocumentScanner: React.FC<DocumentScannerProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 pt-2">
           
           <div className="lg:col-span-2 space-y-3">
-            <div className="flex items-center justify-between text-xs text-slate-300">
-              <label className="font-semibold text-slate-200">Paste Medical Report Text or Upload File</label>
+            <div className="flex items-center justify-between text-xs text-slate-600 dark:text-slate-300">
+              <label className="font-semibold text-slate-800 dark:text-slate-200">Paste Medical Report Text or Upload File</label>
               <select
                 value={docType}
                 onChange={(e) => setDocType(e.target.value)}
-                className="bg-slate-800 border border-slate-700 text-slate-200 text-xs rounded-lg px-2.5 py-1 focus:ring-1 focus:ring-teal-500"
+                className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 text-xs rounded-lg px-2.5 py-1 focus:ring-1 focus:ring-primary"
               >
                 <option value="lab_report">Lab Blood Work Report</option>
                 <option value="imaging_scan">Imaging (MRI/CT/X-Ray) Report</option>
@@ -148,16 +148,16 @@ export const DocumentScanner: React.FC<DocumentScannerProps> = ({
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
               placeholder="Paste raw lab results or radiologic impression notes here (e.g. Glucose 142 mg/dL, HbA1c 6.8%, LDL 168 mg/dL)..."
-              className="w-full h-24 bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 font-mono resize-none"
+              className="w-full h-24 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl p-3 text-xs text-slate-800 dark:text-slate-200 placeholder:text-slate-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary font-mono resize-none"
             />
           </div>
 
-          <div className="flex flex-col justify-between space-y-3 bg-slate-950/60 border border-dashed border-slate-800 rounded-xl p-3 text-center">
+          <div className="flex flex-col justify-between space-y-3 bg-slate-50 dark:bg-slate-950/60 border border-dashed border-slate-300 dark:border-slate-800 rounded-xl p-3 text-center">
             <div className="flex flex-col items-center justify-center py-2 space-y-2">
-              <UploadCloud className="w-8 h-8 text-teal-400/80 animate-bounce" />
+              <UploadCloud className="w-8 h-8 text-primary animate-bounce" />
               <div>
-                <p className="text-xs font-semibold text-slate-300">Drop PDF / Image Document</p>
-                <p className="text-[10px] text-slate-500">Supports PNG, JPG, TXT, OCR files</p>
+                <p className="text-xs font-semibold text-slate-700 dark:text-slate-300">Drop PDF / Image Document</p>
+                <p className="text-[10px] text-slate-400">Supports PNG, JPG, TXT, OCR files</p>
               </div>
               <input
                 type="file"
@@ -168,19 +168,19 @@ export const DocumentScanner: React.FC<DocumentScannerProps> = ({
               />
               <label
                 htmlFor="doc-file-upload"
-                className="cursor-pointer bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs px-3 py-1.5 rounded-lg border border-slate-700 font-medium transition-colors"
+                className="cursor-pointer bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 font-medium transition-colors"
               >
                 Browse File
               </label>
               {uploadedImage && (
-                <p className="text-[10px] text-emerald-400 font-medium">✓ Image Attached</p>
+                <p className="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium">✓ Image Attached</p>
               )}
             </div>
 
             <button
               onClick={handleRunAnalysis}
               disabled={isAnalyzing || (!inputText && !uploadedImage)}
-              className="w-full bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-400 hover:to-emerald-400 text-slate-950 font-bold py-2 px-4 rounded-xl text-xs flex items-center justify-center space-x-2 shadow-md shadow-teal-500/20 disabled:opacity-50 transition-all"
+              className="w-full bg-primary hover:opacity-90 text-white font-bold py-2 px-4 rounded-xl text-xs flex items-center justify-center space-x-2 shadow-sm disabled:opacity-50 transition-all"
             >
               {isAnalyzing ? (
                 <>
@@ -201,33 +201,33 @@ export const DocumentScanner: React.FC<DocumentScannerProps> = ({
 
       {/* Active Document Analysis Display */}
       {activeDoc ? (
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-lg space-y-6">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-xs space-y-6">
           
           {/* Active Header Bar */}
-          <div className="bg-slate-800/80 p-5 border-b border-slate-700/80 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="bg-slate-50 dark:bg-slate-800/80 p-5 border-b border-slate-200 dark:border-slate-700/80 flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div className="space-y-1">
               <div className="flex items-center space-x-3">
-                <span className="px-2.5 py-0.5 rounded-full bg-teal-500/20 text-teal-300 text-xs font-semibold border border-teal-500/40 uppercase">
+                <span className="px-2.5 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950/50 text-primary text-xs font-semibold border border-blue-200 dark:border-blue-800 uppercase">
                   {activeDoc.type.replace('_', ' ')}
                 </span>
-                <span className="text-xs text-slate-400 font-mono">
+                <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">
                   Uploaded: {activeDoc.uploadDate}
                 </span>
               </div>
-              <h1 className="text-xl font-extrabold text-white">
+              <h1 className="text-xl font-extrabold text-slate-900 dark:text-white">
                 {activeDoc.title}
               </h1>
               {activeDoc.metadata && (
-                <div className="flex flex-wrap items-center gap-4 text-xs text-slate-400 pt-1">
+                <div className="flex flex-wrap items-center gap-4 text-xs text-slate-500 dark:text-slate-400 pt-1">
                   {activeDoc.metadata.facility && (
                     <span className="flex items-center space-x-1">
-                      <Building2 className="w-3.5 h-3.5 text-slate-500" />
+                      <Building2 className="w-3.5 h-3.5 text-slate-400" />
                       <span>{activeDoc.metadata.facility}</span>
                     </span>
                   )}
                   {activeDoc.metadata.physicianName && (
                     <span className="flex items-center space-x-1">
-                      <User className="w-3.5 h-3.5 text-slate-500" />
+                      <User className="w-3.5 h-3.5 text-slate-400" />
                       <span>{activeDoc.metadata.physicianName}</span>
                     </span>
                   )}
@@ -237,13 +237,13 @@ export const DocumentScanner: React.FC<DocumentScannerProps> = ({
 
             {/* View Mode Toggle (Patient vs Clinical) & Chat Button */}
             <div className="flex items-center space-x-3">
-              <div className="bg-slate-950 p-1 rounded-xl border border-slate-800 flex items-center space-x-1">
+              <div className="bg-slate-100 dark:bg-slate-950 p-1 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center space-x-1">
                 <button
                   onClick={() => setViewMode('layman')}
                   className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                     viewMode === 'layman'
-                      ? 'bg-teal-500 text-slate-950 shadow-sm font-bold'
-                      : 'text-slate-400 hover:text-slate-200'
+                      ? 'bg-primary text-white shadow-xs font-bold'
+                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
                   }`}
                 >
                   Patient Explanation
@@ -252,8 +252,8 @@ export const DocumentScanner: React.FC<DocumentScannerProps> = ({
                   onClick={() => setViewMode('clinical')}
                   className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                     viewMode === 'clinical'
-                      ? 'bg-teal-500 text-slate-950 shadow-sm font-bold'
-                      : 'text-slate-400 hover:text-slate-200'
+                      ? 'bg-primary text-white shadow-xs font-bold'
+                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
                   }`}
                 >
                   Clinical Report
@@ -262,7 +262,7 @@ export const DocumentScanner: React.FC<DocumentScannerProps> = ({
 
               <button
                 onClick={() => onConsultAI(activeDoc)}
-                className="bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-3.5 py-2 rounded-xl text-xs flex items-center space-x-1.5 shadow-md shadow-indigo-600/20 transition-all"
+                className="bg-primary hover:opacity-90 text-white font-bold px-3.5 py-2 rounded-xl text-xs flex items-center space-x-1.5 shadow-xs transition-all"
               >
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>Ask Specialist AI</span>
@@ -274,12 +274,12 @@ export const DocumentScanner: React.FC<DocumentScannerProps> = ({
           <div className="p-5 space-y-6">
             
             {/* Summary Box */}
-            <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-4 space-y-2">
-              <div className="flex items-center space-x-2 text-xs font-bold text-teal-400 uppercase tracking-wider">
+            <div className="bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 rounded-xl p-4 space-y-2">
+              <div className="flex items-center space-x-2 text-xs font-bold text-primary uppercase tracking-wider">
                 <FileCheck className="w-4 h-4" />
                 <span>{viewMode === 'layman' ? 'What This Means For You' : 'Clinical Summary & Pathophysiology'}</span>
               </div>
-              <p className="text-sm text-slate-200 leading-relaxed font-sans">
+              <p className="text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-sans">
                 {viewMode === 'layman' ? activeDoc.laymanExplanation : activeDoc.summary}
               </p>
             </div>
@@ -288,19 +288,19 @@ export const DocumentScanner: React.FC<DocumentScannerProps> = ({
             {activeDoc.abnormalValues.length > 0 && (
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-sm font-bold text-white flex items-center space-x-2">
-                    <AlertCircle className="w-4 h-4 text-amber-400" />
+                  <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center space-x-2">
+                    <AlertCircle className="w-4 h-4 text-amber-500" />
                     <span>Flagged Lab Metrics & Reference Ranges ({activeDoc.abnormalValues.length})</span>
                   </h3>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {activeDoc.abnormalValues.map((metric, idx) => (
-                    <div key={idx} className="bg-slate-950 border border-slate-800 rounded-xl p-3.5 space-y-2">
+                    <div key={idx} className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl p-3.5 space-y-2">
                       <div className="flex items-start justify-between">
                         <div>
-                          <p className="text-xs font-bold text-white">{metric.metricName}</p>
-                          <p className="text-[11px] text-slate-400">Ref: {metric.referenceRange}</p>
+                          <p className="text-xs font-bold text-slate-900 dark:text-white">{metric.metricName}</p>
+                          <p className="text-[11px] text-slate-500 dark:text-slate-400">Ref: {metric.referenceRange}</p>
                         </div>
                         <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase border ${getRiskBadge(metric.riskLevel)}`}>
                           {metric.riskLevel} Risk
@@ -308,11 +308,11 @@ export const DocumentScanner: React.FC<DocumentScannerProps> = ({
                       </div>
 
                       <div className="flex items-baseline space-x-1.5">
-                        <span className="text-xl font-extrabold text-white">{metric.measuredValue}</span>
-                        <span className="text-xs text-slate-400 font-mono">{metric.unit}</span>
+                        <span className="text-xl font-extrabold text-slate-900 dark:text-white">{metric.measuredValue}</span>
+                        <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">{metric.unit}</span>
                       </div>
 
-                      <p className="text-xs text-slate-300 leading-normal bg-slate-900/80 p-2 rounded-lg border border-slate-800/80">
+                      <p className="text-xs text-slate-700 dark:text-slate-300 leading-normal bg-white dark:bg-slate-900/80 p-2 rounded-lg border border-slate-200 dark:border-slate-800/80">
                         {metric.clinicalSignificance}
                       </p>
                     </div>
@@ -323,14 +323,14 @@ export const DocumentScanner: React.FC<DocumentScannerProps> = ({
 
             {/* Key Findings List */}
             <div className="space-y-2">
-              <h3 className="text-sm font-bold text-white flex items-center space-x-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+              <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center space-x-2">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                 <span>Extracted Key Findings</span>
               </h3>
               <ul className="space-y-2">
                 {activeDoc.keyFindings.map((finding, idx) => (
-                  <li key={idx} className="bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs text-slate-200 flex items-start space-x-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-teal-400 mt-1.5 shrink-0"></span>
+                  <li key={idx} className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl p-3 text-xs text-slate-800 dark:text-slate-200 flex items-start space-x-2.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0"></span>
                     <span className="leading-relaxed">{finding}</span>
                   </li>
                 ))}
@@ -340,23 +340,23 @@ export const DocumentScanner: React.FC<DocumentScannerProps> = ({
             {/* Recommendations & Action Plan */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
               
-              <div className="bg-slate-950/90 border border-slate-800 rounded-xl p-4 space-y-3">
-                <h4 className="text-xs font-bold text-teal-400 uppercase tracking-wider flex items-center space-x-2">
+              <div className="bg-slate-50 dark:bg-slate-950/90 border border-slate-200 dark:border-slate-800 rounded-xl p-4 space-y-3">
+                <h4 className="text-xs font-bold text-primary uppercase tracking-wider flex items-center space-x-2">
                   <Activity className="w-4 h-4" />
                   <span>Actionable Recommendations</span>
                 </h4>
-                <ul className="space-y-2 text-xs text-slate-300">
+                <ul className="space-y-2 text-xs text-slate-700 dark:text-slate-300">
                   {activeDoc.recommendations.map((rec, idx) => (
                     <li key={idx} className="flex items-start space-x-2">
-                      <span className="text-teal-400 font-bold">•</span>
+                      <span className="text-primary font-bold">•</span>
                       <span>{rec}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="bg-slate-950/90 border border-slate-800 rounded-xl p-4 space-y-3">
-                <h4 className="text-xs font-bold text-indigo-400 uppercase tracking-wider flex items-center space-x-2">
+              <div className="bg-slate-50 dark:bg-slate-950/90 border border-slate-200 dark:border-slate-800 rounded-xl p-4 space-y-3">
+                <h4 className="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider flex items-center space-x-2">
                   <HelpCircle className="w-4 h-4" />
                   <span>Questions To Ask Your Doctor</span>
                 </h4>
@@ -369,14 +369,14 @@ export const DocumentScanner: React.FC<DocumentScannerProps> = ({
                         onClick={() => toggleQuestionCheck(q)}
                         className={`p-2.5 rounded-lg border text-xs cursor-pointer transition-all flex items-start space-x-2.5 ${
                           isChecked
-                            ? 'bg-indigo-950/40 border-indigo-700/60 text-indigo-200 line-through opacity-70'
-                            : 'bg-slate-900 border-slate-800 text-slate-200 hover:border-slate-700'
+                            ? 'bg-indigo-50 dark:bg-indigo-950/40 border-indigo-200 dark:border-indigo-700/60 text-indigo-900 dark:text-indigo-200 line-through opacity-70'
+                            : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:border-slate-300'
                         }`}
                       >
                         {isChecked ? (
-                          <CheckSquare className="w-4 h-4 text-indigo-400 shrink-0 mt-0.5" />
+                          <CheckSquare className="w-4 h-4 text-indigo-600 dark:text-indigo-400 shrink-0 mt-0.5" />
                         ) : (
-                          <Square className="w-4 h-4 text-slate-500 shrink-0 mt-0.5" />
+                          <Square className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
                         )}
                         <span>{q}</span>
                       </div>
@@ -388,12 +388,12 @@ export const DocumentScanner: React.FC<DocumentScannerProps> = ({
             </div>
 
             {/* Original Raw Text View Accordion */}
-            <details className="bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs text-slate-400 group">
-              <summary className="font-semibold text-slate-300 cursor-pointer flex items-center justify-between">
+            <details className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl p-3 text-xs text-slate-600 dark:text-slate-400 group">
+              <summary className="font-semibold text-slate-800 dark:text-slate-300 cursor-pointer flex items-center justify-between">
                 <span>View Original Raw Document Text</span>
-                <span className="text-[10px] text-teal-400 group-open:hidden">Expand</span>
+                <span className="text-[10px] text-primary group-open:hidden">Expand</span>
               </summary>
-              <pre className="mt-3 p-3 bg-slate-900 rounded-lg text-[11px] font-mono text-slate-300 whitespace-pre-wrap overflow-x-auto border border-slate-800">
+              <pre className="mt-3 p-3 bg-white dark:bg-slate-900 rounded-lg text-[11px] font-mono text-slate-800 dark:text-slate-300 whitespace-pre-wrap overflow-x-auto border border-slate-200 dark:border-slate-800">
                 {activeDoc.fullText}
               </pre>
             </details>
@@ -402,10 +402,10 @@ export const DocumentScanner: React.FC<DocumentScannerProps> = ({
 
         </div>
       ) : (
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-12 text-center space-y-3">
-          <FileText className="w-12 h-12 text-slate-600 mx-auto" />
-          <h3 className="text-base font-bold text-white">No Document Selected</h3>
-          <p className="text-xs text-slate-400 max-w-sm mx-auto">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-12 text-center space-y-3">
+          <FileText className="w-12 h-12 text-slate-400 mx-auto" />
+          <h3 className="text-base font-bold text-slate-900 dark:text-white">No Document Selected</h3>
+          <p className="text-xs text-slate-500 dark:text-slate-400 max-w-sm mx-auto">
             Choose a sample report from the top banner or upload your own lab report to view detailed AI insights.
           </p>
         </div>

@@ -61,13 +61,13 @@ export const JargonTranslator: React.FC<JargonTranslatorProps> = ({
     <div className="space-y-6">
       
       {/* Header */}
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-md flex items-start justify-between">
+      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-xs flex items-start justify-between">
         <div>
           <div className="flex items-center space-x-2">
-            <BookOpenCheck className="w-5 h-5 text-cyan-400" />
-            <h2 className="text-lg font-bold text-white">Medical Jargon Translator & Clinical Glossary</h2>
+            <BookOpenCheck className="w-5 h-5 text-primary" />
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white">Medical Jargon Translator & Clinical Glossary</h2>
           </div>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
             Convert dense radiologic notes, biopsy summaries, or doctor letters into plain 6th-grade English.
           </p>
         </div>
@@ -77,9 +77,9 @@ export const JargonTranslator: React.FC<JargonTranslatorProps> = ({
         
         {/* Input & Translation Panel */}
         <div className="lg:col-span-6 space-y-4">
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4 shadow-md">
-            <h3 className="text-sm font-bold text-white flex items-center space-x-2 border-b border-slate-800 pb-2">
-              <Sparkles className="w-4 h-4 text-cyan-400" />
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 space-y-4 shadow-xs">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center space-x-2 border-b border-slate-100 dark:border-slate-800 pb-2">
+              <Sparkles className="w-4 h-4 text-primary" />
               <span>Paste Complex Medical Note</span>
             </h3>
 
@@ -88,13 +88,13 @@ export const JargonTranslator: React.FC<JargonTranslatorProps> = ({
                 value={jargonInput}
                 onChange={(e) => setJargonInput(e.target.value)}
                 placeholder="Paste complex doctor note (e.g. 'Demonstrates periventricular punctate FLAIR hyperintensities without acute infarction or mass effect')..."
-                className="w-full h-32 bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 resize-none font-mono"
+                className="w-full h-32 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl p-3 text-xs text-slate-800 dark:text-slate-200 placeholder:text-slate-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary resize-none font-mono"
               />
 
               <button
                 type="submit"
                 disabled={isProcessing || !jargonInput.trim()}
-                className="w-full bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-cyan-400 hover:to-teal-400 text-slate-950 font-bold py-2.5 px-4 rounded-xl text-xs flex items-center justify-center space-x-2 shadow-md shadow-cyan-500/20 transition-all"
+                className="w-full bg-primary hover:opacity-90 text-white font-bold py-2.5 px-4 rounded-xl text-xs flex items-center justify-center space-x-2 shadow-sm transition-all"
               >
                 {isProcessing ? (
                   <>
@@ -113,9 +113,9 @@ export const JargonTranslator: React.FC<JargonTranslatorProps> = ({
 
           {/* Simplified Result Output */}
           {simplifiedOutput && (
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4 shadow-lg">
-              <h3 className="text-xs font-bold text-cyan-400 uppercase tracking-wider flex items-center space-x-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 space-y-4 shadow-xs">
+              <h3 className="text-xs font-bold text-primary uppercase tracking-wider flex items-center space-x-2">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                 <span>Simplified Explanation</span>
               </h3>
 
