@@ -291,7 +291,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
 
         {/* CTA Banner Section */}
         <section className="py-16 px-6 sm:px-12">
-          <div className="max-w-6xl mx-auto bg-slate-900 dark:bg-slate-800 border border-slate-800 dark:border-slate-700/80 text-white py-16 px-8 rounded-[2.5rem] relative overflow-hidden text-center flex flex-col items-center gap-6 shadow-xl">
+          <div className="max-w-6xl mx-auto bg-gradient-to-br from-blue-600 via-indigo-600 to-blue-800 dark:from-slate-900 dark:to-slate-800 border border-blue-500/20 dark:border-slate-700/80 text-white py-16 px-8 rounded-[2.5rem] relative overflow-hidden text-center flex flex-col items-center gap-6 shadow-xl">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
               Ready to boost your productivity?
             </h2>

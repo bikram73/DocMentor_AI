@@ -198,8 +198,8 @@ export const ChatView: React.FC<ChatViewProps> = ({ document, onSendMessage }) =
             </div>
 
             {msg.sender === 'user' && (
-              <div className="w-9 h-9 rounded-xl bg-slate-800 text-white flex items-center justify-center shrink-0 font-bold text-xs">
-                <User className="w-5 h-5 text-slate-200" />
+              <div className="w-9 h-9 rounded-xl bg-primary text-white flex items-center justify-center shrink-0 font-bold text-xs shadow-xs">
+                <User className="w-5 h-5 text-white" />
               </div>
             )}
           </div>

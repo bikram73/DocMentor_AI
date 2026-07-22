@@ -119,17 +119,17 @@ export const JargonTranslator: React.FC<JargonTranslatorProps> = ({
                 <span>Simplified Explanation</span>
               </h3>
 
-              <p className="text-xs text-slate-200 leading-relaxed bg-slate-950 p-4 rounded-xl border border-slate-800">
+              <p className="text-xs text-slate-800 dark:text-slate-200 leading-relaxed bg-slate-50 dark:bg-slate-950 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
                 {simplifiedOutput.simplifiedSummary}
               </p>
 
               {simplifiedOutput.keyTakeaways && (
                 <div className="space-y-2">
-                  <span className="text-xs font-bold text-white">Key Takeaways:</span>
-                  <ul className="space-y-1.5 text-xs text-slate-300">
+                  <span className="text-xs font-bold text-slate-900 dark:text-white">Key Takeaways:</span>
+                  <ul className="space-y-1.5 text-xs text-slate-700 dark:text-slate-300">
                     {simplifiedOutput.keyTakeaways.map((take, idx) => (
                       <li key={idx} className="flex items-start space-x-2">
-                        <span className="text-cyan-400 font-bold">•</span>
+                        <span className="text-primary dark:text-cyan-400 font-bold">•</span>
                         <span>{take}</span>
                       </li>
                     ))}
@@ -141,10 +141,10 @@ export const JargonTranslator: React.FC<JargonTranslatorProps> = ({
         </div>
 
         {/* Searchable Medical Glossary Column */}
-        <div className="lg:col-span-6 bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4 shadow-md">
-          <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-            <h3 className="text-sm font-bold text-white flex items-center space-x-2">
-              <Search className="w-4 h-4 text-teal-400" />
+        <div className="lg:col-span-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 space-y-4 shadow-xs">
+          <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center space-x-2">
+              <Search className="w-4 h-4 text-primary dark:text-teal-400" />
               <span>Interactive Medical Term Glossary</span>
             </h3>
 
@@ -153,26 +153,26 @@ export const JargonTranslator: React.FC<JargonTranslatorProps> = ({
               value={searchFilter}
               onChange={(e) => setSearchFilter(e.target.value)}
               placeholder="Search term (e.g. eGFR, HbA1c)..."
-              className="bg-slate-950 border border-slate-800 text-xs text-slate-200 rounded-lg px-3 py-1.5 focus:outline-none focus:border-teal-500"
+              className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs text-slate-800 dark:text-slate-200 rounded-lg px-3 py-1.5 focus:outline-none focus:border-primary"
             />
           </div>
 
           <div className="space-y-3 max-h-[520px] overflow-y-auto pr-1">
             {filteredGlossary.map((item, idx) => (
-              <div key={idx} className="bg-slate-950 border border-slate-800 rounded-xl p-3.5 space-y-2">
+              <div key={idx} className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl p-3.5 space-y-2">
                 <div className="flex items-center justify-between">
-                  <h4 className="text-xs font-bold text-white">{item.term}</h4>
-                  <span className="text-[9px] px-2 py-0.5 rounded bg-slate-900 text-teal-400 border border-slate-800 font-mono">
+                  <h4 className="text-xs font-bold text-slate-900 dark:text-white">{item.term}</h4>
+                  <span className="text-[9px] px-2 py-0.5 rounded bg-white dark:bg-slate-900 text-primary dark:text-teal-400 border border-slate-200 dark:border-slate-800 font-mono">
                     {item.category}
                   </span>
                 </div>
 
-                <p className="text-xs text-slate-300 bg-slate-900/60 p-2.5 rounded-lg border border-slate-800/60">
-                  <span className="font-bold text-teal-300">In Simple Terms: </span>
+                <p className="text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-900/60 p-2.5 rounded-lg border border-slate-200 dark:border-slate-800/60">
+                  <span className="font-bold text-primary dark:text-teal-300">In Simple Terms: </span>
                   {item.plainLanguage}
                 </p>
 
-                <p className="text-[11px] text-slate-400 italic">
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 italic">
                   Clinical Context: {item.clinicalExample}
                 </p>
               </div>
