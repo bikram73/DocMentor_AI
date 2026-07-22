@@ -72,10 +72,6 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             </button>
           )}
 
-          <button className="p-2 rounded-full text-on-surface-variant hover:bg-surface-container transition-colors">
-            <Bell className="w-5 h-5" />
-          </button>
-
           <button 
             onClick={onGetStarted}
             className="bg-primary text-white px-5 py-2.5 rounded-xl font-bold text-xs hover:opacity-90 active:scale-95 transition-all shadow-md shadow-primary/20 flex items-center gap-2"

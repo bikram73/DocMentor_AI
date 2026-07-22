@@ -129,15 +129,15 @@
   --color-outline-variant: #334155;
 
   --color-secondary-container: #1e293b;
-  --color-on-secondary-container: #e2e8f0;
+  --color-on-secondary-container: #38bdf8;
 
   background-color: #0f172a;
   color: #f8fafc;
 }
 
 .dark body {
-  background-color: #0f172a;
-  color: #f8fafc;
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
 }
 
 .dark .glass-card {
@@ -155,46 +155,54 @@
   color: #f8fafc !important;
 }
 
-.dark div.bg-white,
-.dark section.bg-white,
-.dark card.bg-white {
-  background-color: #1e293b;
+.dark .bg-white,
+.dark .bg-white\/80,
+.dark .bg-white\/90,
+.dark .bg-white\/50 {
+  background-color: #1e293b !important;
   color: #f8fafc;
-  border-color: #334155;
 }
 
 .dark header,
 .dark nav {
-  background-color: rgba(15, 23, 42, 0.85) !important;
-  border-color: rgba(51, 65, 85, 0.6) !important;
+  background-color: rgba(15, 23, 42, 0.9) !important;
+  border-color: rgba(51, 65, 85, 0.8) !important;
 }
 
-.dark .bg-\[\#F8FAFC\] {
-  background-color: #0f172a !important;
-}
-
+.dark .bg-\[\#F8FAFC\],
 .dark .bg-surface-container-lowest {
   background-color: #0f172a !important;
 }
 
+.dark .bg-surface-container-low,
+.dark .bg-surface-container,
+.dark .bg-surface-container-high {
+  background-color: #1e293b !important;
+}
+
 .dark .text-on-surface {
-  color: #f8fafc;
+  color: #f8fafc !important;
+}
+
+.dark .text-on-surface-variant {
+  color: #94a3b8 !important;
 }
 
 .dark .border-outline-variant\/30,
 .dark .border-outline-variant\/40,
 .dark .border-outline-variant\/50,
 .dark .border-outline-variant\/60,
-.dark .border-outline-variant\/70 {
-  border-color: rgba(51, 65, 85, 0.6);
+.dark .border-outline-variant\/70,
+.dark .border-outline-variant {
+  border-color: #334155 !important;
 }
 
 .dark input,
 .dark textarea,
 .dark select {
-  background-color: #182234;
-  color: #f8fafc;
-  border-color: #334155;
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+  border-color: #334155 !important;
 }
 
 .dark ::-webkit-scrollbar-thumb {

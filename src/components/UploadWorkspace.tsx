@@ -90,7 +90,7 @@ export const UploadWorkspace: React.FC<UploadWorkspaceProps> = ({
   );
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-on-surface flex flex-col -m-4 sm:-m-6 lg:-m-8">
+    <div className="min-h-screen bg-surface dark:bg-slate-950 text-on-surface flex flex-col -m-4 sm:-m-6 lg:-m-8 transition-colors">
       
       {/* Top Navigation Bar */}
       <nav className="bg-white/80 backdrop-blur-lg border-b border-outline-variant/30 shadow-2xs flex justify-between items-center w-full px-6 sm:px-10 py-4 sticky top-0 z-50">
@@ -134,10 +134,6 @@ export const UploadWorkspace: React.FC<UploadWorkspaceProps> = ({
               )}
             </button>
           )}
-
-          <button className="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-all">
-            <Bell className="w-5 h-5" />
-          </button>
 
           <button 
             onClick={() => fileInputRef.current?.click()}

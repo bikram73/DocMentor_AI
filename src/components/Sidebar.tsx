@@ -96,7 +96,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       </nav>
 
       {/* Patient Record Locker Quick Switcher */}
-      <div className="bg-white/80 border border-outline-variant/60 rounded-xl p-3 my-2 shadow-2xs">
+      <div className="bg-white/80 dark:bg-slate-800/90 border border-outline-variant/60 dark:border-slate-700/80 rounded-xl p-3 my-2 shadow-2xs">
         <div className="flex items-center gap-2.5">
           <div className="w-8 h-8 rounded-lg bg-primary-container/20 text-primary font-bold text-xs flex items-center justify-center border border-primary/20">
             EV
