@@ -19,9 +19,21 @@ export default function App() {
   const [activeDoc, setActiveDoc] = useState<MedicalDocument | null>(SAMPLE_DOCUMENTS[0]);
   const [searchQuery, setSearchQuery] = useState('');
   const [isAnalyzing, setIsAnalyzing] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState<boolean>(() => {
+    try {
+      const saved = localStorage.getItem('docmentor_dark_mode');
+      return saved ? JSON.parse(saved) : false;
+    } catch {
+      return false;
+    }
+  });
 
   useEffect(() => {
+    try {
+      localStorage.setItem('docmentor_dark_mode', JSON.stringify(darkMode));
+    } catch (e) {
+      console.error(e);
+    }
     if (darkMode) {
       document.documentElement.classList.add('dark');
     } else {

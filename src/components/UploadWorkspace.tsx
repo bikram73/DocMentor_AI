@@ -130,7 +130,7 @@ export const UploadWorkspace: React.FC<UploadWorkspaceProps> = ({
             <button
               onClick={() => setDarkMode(!darkMode)}
               title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-              className="p-2 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-primary transition-all flex items-center justify-center border border-slate-200 dark:border-slate-700"
+              className="p-2 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-primary transition-all flex items-center justify-center border border-slate-200 dark:border-slate-700 cursor-pointer"
             >
               {darkMode ? (
                 <Sun className="w-5 h-5 text-amber-400 fill-amber-400/20" />
