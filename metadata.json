@@ -1,0 +1,6 @@
+{
+  "name": "DocMentor AI",
+  "description": "AI-powered medical document analysis, clinical decision support, medical report summarization, diagnostic insights, and interactive health query assistant.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
