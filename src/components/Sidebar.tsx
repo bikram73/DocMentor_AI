@@ -8,9 +8,6 @@ import {
   Languages, 
   Upload, 
   Settings, 
-  Moon, 
-  Sun, 
-  LogOut, 
   Sparkles,
   Activity
 } from 'lucide-react';
@@ -96,36 +93,17 @@ export const Sidebar: React.FC<SidebarProps> = ({
       </nav>
 
       {/* Patient Record Locker Quick Switcher */}
-      <div className="bg-white/80 dark:bg-slate-800/90 border border-outline-variant/60 dark:border-slate-700/80 rounded-xl p-3 my-2 shadow-2xs">
+      <div className="bg-white dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700/80 rounded-xl p-3 my-2 shadow-xs transition-colors">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-primary-container/20 text-primary font-bold text-xs flex items-center justify-center border border-primary/20">
+          <div className="w-8 h-8 rounded-lg bg-primary/10 text-primary font-bold text-xs flex items-center justify-center border border-primary/20 shrink-0">
             EV
           </div>
           <div className="min-w-0 flex-1">
-            <p className="text-xs font-bold text-on-surface truncate">Eleanor Vance</p>
-            <p className="text-[10px] text-on-surface-variant">52 Yrs • Lab & MRI Active</p>
+            <p className="text-xs font-bold text-slate-800 dark:text-slate-100 truncate">Eleanor Vance</p>
+            <p className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">52 Yrs • Lab & MRI Active</p>
           </div>
-          <Activity className="w-4 h-4 text-tertiary" />
+          <Activity className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
         </div>
-      </div>
-
-      {/* Footer System Actions */}
-      <div className="mt-auto pt-3 border-t border-outline-variant flex flex-col gap-1">
-        <button
-          onClick={() => setDarkMode(prev => !prev)}
-          className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-on-surface-variant hover:bg-surface-container-high transition-colors text-left"
-        >
-          {darkMode ? <Sun className="w-4 h-4 text-amber-500" /> : <Moon className="w-4 h-4 text-on-surface-variant" />}
-          <span>{darkMode ? 'Light Mode' : 'Dark Mode'}</span>
-        </button>
-
-        <button 
-          onClick={() => alert('DocMentor AI is active. Patient data is securely stored locally.')}
-          className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-error hover:bg-error-container/40 transition-colors text-left"
-        >
-          <LogOut className="w-4 h-4 text-error" />
-          <span>Clear Session</span>
-        </button>
       </div>
 
     </aside>
