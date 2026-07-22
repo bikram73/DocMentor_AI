@@ -11,7 +11,8 @@ import {
   FileCheck,
   RotateCw,
   Search,
-  ChevronRight
+  ChevronRight,
+  Bell
 } from 'lucide-react';
 
 interface UploadWorkspaceProps {
@@ -19,17 +20,20 @@ interface UploadWorkspaceProps {
   onSelectDoc: (doc: MedicalDocument) => void;
   onUploadAndAnalyze: (text: string, type: string, imageBase64?: string) => Promise<void>;
   isAnalyzing: boolean;
+  onNavigateTab?: (tab: string) => void;
 }
 
 export const UploadWorkspace: React.FC<UploadWorkspaceProps> = ({
   documents,
   onSelectDoc,
   onUploadAndAnalyze,
-  isAnalyzing
+  isAnalyzing,
+  onNavigateTab
 }) => {
   const [dragActive, setDragActive] = useState(false);
   const [pasteText, setOriginalText] = useState('');
   const [docType, setDocType] = useState('lab_report');
+  const [searchQuery, setSearchQuery] = useState('');
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleDrag = (e: React.DragEvent) => {
@@ -74,165 +78,309 @@ export const UploadWorkspace: React.FC<UploadWorkspaceProps> = ({
     onUploadAndAnalyze(pasteText, docType);
   };
 
+  const filteredDocs = documents.filter(d => 
+    d.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    d.type.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
-    <div className="space-y-10 max-w-6xl mx-auto pb-12">
+    <div className="min-h-screen bg-[#F8FAFC] text-on-surface flex flex-col -m-4 sm:-m-6 lg:-m-8">
       
-      {/* Upload Header */}
-      <div className="text-center space-y-2 max-w-2xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-xs font-bold mb-2">
-          <Sparkles className="w-3.5 h-3.5 text-primary" />
-          <span>POWERED BY GEMINI 3.6 FLASH</span>
+      {/* Top Navigation Bar */}
+      <nav className="bg-white/80 backdrop-blur-lg border-b border-outline-variant/30 shadow-2xs flex justify-between items-center w-full px-6 sm:px-10 py-4 sticky top-0 z-50">
+        <div className="flex items-center gap-8">
+          <span 
+            onClick={() => onNavigateTab && onNavigateTab('landing')}
+            className="text-2xl font-black text-primary tracking-tight cursor-pointer"
+          >
+            DocMentor AI
+          </span>
+          <div className="hidden md:flex items-center gap-6 text-xs font-bold text-on-surface-variant">
+            <button onClick={() => onNavigateTab && onNavigateTab('landing')} className="hover:text-primary transition-colors">Home</button>
+            <button onClick={() => onNavigateTab && onNavigateTab('summary')} className="hover:text-primary transition-colors">Features</button>
+            <button onClick={() => onNavigateTab && onNavigateTab('upload-workspace')} className="text-primary border-b-2 border-primary pb-0.5">How It Works</button>
+            <button onClick={() => onNavigateTab && onNavigateTab('settings')} className="hover:text-primary transition-colors">About</button>
+          </div>
         </div>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-on-surface tracking-tight leading-tight">
-          Upload Medical & Technical Documents
-        </h1>
-        <p className="text-sm text-on-surface-variant leading-relaxed">
-          Bring your lab results, radiologic MRI/CT impressions, discharge notes, or research papers to life. Drop your files here for deep AI analysis and plain-language insights.
-        </p>
-      </div>
 
-      {/* Premium Upload Drop Zone */}
-      <div 
-        onDragEnter={handleDrag}
-        onDragLeave={handleDrag}
-        onDragOver={handleDrag}
-        onDrop={handleDrop}
-        className={`w-full bg-white border-2 border-dashed rounded-[24px] p-8 sm:p-12 flex flex-col items-center justify-center transition-all duration-300 relative overflow-hidden shadow-2xs ${
-          dragActive ? 'border-primary bg-primary/5 scale-[1.01]' : 'border-outline-variant hover:border-primary/50'
-        }`}
-      >
-        <input 
-          ref={fileInputRef}
-          type="file" 
-          accept=".pdf,.txt,.png,.jpg,.jpeg,.doc,.docx"
-          onChange={(e) => e.target.files?.[0] && handleFileSelected(e.target.files[0])}
-          className="hidden" 
-        />
-
-        <div className="z-10 flex flex-col items-center text-center">
-          <div className="w-20 h-20 bg-primary-container/10 rounded-2xl flex items-center justify-center mb-4 text-primary group-hover:scale-110 transition-transform">
-            <Upload className="w-10 h-10 text-primary" />
+        <div className="flex items-center gap-4">
+          <div className="hidden sm:flex items-center bg-surface-container-low px-3 py-1.5 rounded-xl border border-outline-variant/50">
+            <Search className="w-4 h-4 text-on-surface-variant shrink-0" />
+            <input 
+              type="text" 
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search files..."
+              className="bg-transparent border-none focus:outline-none focus:ring-0 text-xs px-2 w-40 text-on-surface"
+            />
           </div>
 
-          <h3 className="text-lg font-bold text-on-surface mb-1">Drag and drop your PDF or Image</h3>
-          <p className="text-xs text-on-surface-variant mb-6 max-w-sm">
-            Upload Laboratory Panels, Brain MRIs, Radiology Summaries, or Clinical Notes.<br />
-            <span className="opacity-60 text-[10px]">Maximum file size: 50MB</span>
-          </p>
+          <button className="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-all">
+            <Bell className="w-5 h-5" />
+          </button>
 
-          <div className="flex flex-wrap justify-center gap-3 mb-6">
-            <button 
-              onClick={() => fileInputRef.current?.click()}
-              disabled={isAnalyzing}
-              className="bg-primary text-white px-6 py-3 rounded-xl font-bold text-xs flex items-center gap-2 hover:opacity-90 active:scale-95 transition-all shadow-md shadow-primary/20"
+          <button 
+            onClick={() => fileInputRef.current?.click()}
+            className="bg-primary text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow-md shadow-primary/20 hover:opacity-90 transition-opacity flex items-center gap-2"
+          >
+            <Upload className="w-4 h-4" />
+            <span>Upload PDF</span>
+          </button>
+
+          <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/20 shrink-0">
+            <img 
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQEkq4w3-ZnOSStMS6hGfa5u7mZ6cFSdjwUtIz4lk5xAnAqZMAjK8lktQaycobNRoP447GO_JSRo0sfZ9X_2gGWxRzfmZI-fxjnlv5zD9tUNJC7jtE6ITjGG1pjTgvppexq32lhhNFNJbX8LpscW9OouUEDZRJz_ugeSCTDHiAWvxLTEmbMs-Z6lQtQwi1FUNKtkYNDiUHv7muGml8NYfZ_4PJWro43Ge-eaODVfndQpxME8XcQtEK" 
+              alt="Researcher Portrait" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </nav>
+
+      {/* Main Container */}
+      <main className="flex-1 flex flex-col items-center px-6 sm:px-10 py-10 gap-12 max-w-6xl mx-auto w-full">
+        
+        {/* Premium Upload Section */}
+        <section className="w-full max-w-4xl flex flex-col items-center gap-6">
+          <div className="text-center space-y-2">
+            <h1 className="text-4xl sm:text-5xl font-black text-on-surface tracking-tight">Upload Documents</h1>
+            <p className="text-sm sm:text-base text-on-surface-variant max-w-xl mx-auto leading-relaxed">
+              Bring your research to life. Drop your PDFs here and let our AI Mentor provide deep analysis and insights.
+            </p>
+          </div>
+
+          <div 
+            onDragEnter={handleDrag}
+            onDragLeave={handleDrag}
+            onDragOver={handleDrag}
+            onDrop={handleDrop}
+            onClick={() => fileInputRef.current?.click()}
+            className={`w-full bg-white border-2 border-dashed rounded-[24px] p-8 sm:p-12 flex flex-col items-center justify-center transition-all duration-300 group hover:border-primary/50 cursor-pointer relative overflow-hidden shadow-2xs ${
+              dragActive ? 'border-primary bg-primary/5 scale-[1.01]' : 'border-outline-variant/70'
+            }`}
+          >
+            {/* Corner Decorative Glows */}
+            <div className="absolute -top-24 -right-24 w-64 h-64 bg-primary/5 blur-3xl rounded-full pointer-events-none"></div>
+            <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-tertiary/5 blur-3xl rounded-full pointer-events-none"></div>
+
+            <input 
+              ref={fileInputRef}
+              type="file" 
+              accept=".pdf,.txt,.png,.jpg,.jpeg,.doc,.docx"
+              onChange={(e) => e.target.files?.[0] && handleFileSelected(e.target.files[0])}
+              className="hidden" 
+            />
+
+            <div className="z-10 flex flex-col items-center text-center">
+              <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform duration-300">
+                <Upload className="w-10 h-10 text-primary" />
+              </div>
+
+              <h3 className="text-xl font-bold text-on-surface mb-1">Drag and drop your files</h3>
+              <p className="text-xs sm:text-sm text-on-surface-variant mb-6 text-center">
+                Upload PDFs, Research Papers, or Technical Docs<br />
+                <span className="text-[10px] opacity-60 font-semibold">Maximum file size: 50MB</span>
+              </p>
+
+              <button 
+                type="button"
+                disabled={isAnalyzing}
+                className="bg-primary text-white px-8 py-3.5 rounded-xl font-bold text-xs flex items-center gap-2 shadow-lg shadow-primary/25 hover:translate-y-[-2px] active:scale-95 transition-all"
+              >
+                {isAnalyzing ? <RotateCw className="w-4 h-4 animate-spin" /> : <Plus className="w-4 h-4" />}
+                <span>{isAnalyzing ? 'Analyzing File...' : 'Choose File'}</span>
+              </button>
+
+              <div className="mt-8 flex items-center gap-6 text-xs text-on-surface-variant opacity-75 font-medium">
+                <div className="flex items-center gap-1.5">
+                  <FileText className="w-4 h-4 text-primary" />
+                  <span>PDF Only</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <Lock className="w-4 h-4 text-tertiary" />
+                  <span>Private & Encrypted</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Manual Direct Paste Option */}
+        <section className="w-full max-w-4xl bg-white border border-outline-variant/40 rounded-2xl p-6 space-y-4 shadow-2xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-outline-variant/30 pb-3">
+            <h3 className="text-xs font-bold text-on-surface flex items-center gap-2">
+              <FileText className="w-4 h-4 text-primary" />
+              <span>Or Paste Clinical / Report Text Content</span>
+            </h3>
+            <select 
+              value={docType}
+              onChange={(e) => setDocType(e.target.value)}
+              className="bg-surface-container-low border border-outline-variant rounded-xl px-3 py-1.5 text-xs font-bold text-on-surface focus:outline-none"
             >
-              {isAnalyzing ? <RotateCw className="w-4 h-4 animate-spin" /> : <Plus className="w-4 h-4" />}
-              <span>{isAnalyzing ? 'Analyzing File...' : 'Choose File From Device'}</span>
+              <option value="lab_report">Lab Report (Blood / Lipid Panel)</option>
+              <option value="imaging_scan">Radiology Scan (MRI / CT / Ultrasound)</option>
+              <option value="discharge_summary">Discharge Summary</option>
+              <option value="prescription">Prescription Log</option>
+            </select>
+          </div>
+
+          <form onSubmit={handleManualAnalyze} className="space-y-3">
+            <textarea
+              value={pasteText}
+              onChange={(e) => setOriginalText(e.target.value)}
+              placeholder="Paste raw document text here for real-time analysis..."
+              className="w-full h-24 bg-surface-container-low border border-outline-variant/60 rounded-xl p-3 text-xs text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary/20 resize-none font-mono"
+            />
+
+            <button
+              type="submit"
+              disabled={isAnalyzing || !pasteText.trim()}
+              className="px-6 py-2.5 bg-primary text-white rounded-xl text-xs font-bold flex items-center gap-2 hover:opacity-90 disabled:opacity-40 transition-all shadow-2xs"
+            >
+              {isAnalyzing ? <RotateCw className="w-4 h-4 animate-spin" /> : <Sparkles className="w-4 h-4" />}
+              <span>Analyze Text</span>
+            </button>
+          </form>
+        </section>
+
+        {/* Recent Uploads Workspace Section */}
+        <section className="w-full max-w-6xl space-y-6">
+          <div className="flex justify-between items-end px-1">
+            <div>
+              <h2 className="text-2xl font-bold text-on-surface">Recent Workspace</h2>
+              <p className="text-xs text-on-surface-variant mt-0.5">Your recently analyzed and active documents</p>
+            </div>
+            <button 
+              onClick={() => onNavigateTab && onNavigateTab('summary')}
+              className="text-xs font-bold text-primary hover:underline"
+            >
+              View All Files
             </button>
           </div>
 
-          <div className="flex items-center gap-6 text-xs text-on-surface-variant opacity-75 font-medium">
-            <span className="flex items-center gap-1.5">
-              <FileText className="w-4 h-4 text-primary" />
-              <span>PDF & Image OCR</span>
-            </span>
-            <span className="flex items-center gap-1.5">
-              <Lock className="w-4 h-4 text-tertiary" />
-              <span>Private & Encrypted</span>
-            </span>
-          </div>
-        </div>
-      </div>
-
-      {/* Manual Paste Text Fallback */}
-      <div className="bg-surface-container-low border border-outline-variant/40 rounded-2xl p-6 space-y-4 shadow-2xs">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-outline-variant/40 pb-3">
-          <h3 className="text-sm font-bold text-on-surface flex items-center gap-2">
-            <FileText className="w-4 h-4 text-primary" />
-            <span>Or Paste Text Content Directly</span>
-          </h3>
-          <select 
-            value={docType}
-            onChange={(e) => setDocType(e.target.value)}
-            className="bg-white border border-outline-variant rounded-xl px-3 py-1.5 text-xs font-bold text-on-surface focus:outline-none"
-          >
-            <option value="lab_report">Lab Report (Blood / Lipid Panel)</option>
-            <option value="imaging_scan">Radiology Imaging Scan (MRI / CT / Ultrasound)</option>
-            <option value="discharge_summary">Hospital Discharge Summary</option>
-            <option value="prescription">Prescription & Pharmacy Log</option>
-          </select>
-        </div>
-
-        <form onSubmit={handleManualAnalyze} className="space-y-3">
-          <textarea
-            value={pasteText}
-            onChange={(e) => setOriginalText(e.target.value)}
-            placeholder="Paste clinical report text here (e.g. 'GLUCOSE, FASTING: 142 mg/dL [HIGH], HbA1c: 6.8%')..."
-            className="w-full h-28 bg-white border border-outline-variant/60 rounded-xl p-3 text-xs text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary/20 resize-none font-mono"
-          />
-
-          <button
-            type="submit"
-            disabled={isAnalyzing || !pasteText.trim()}
-            className="w-full sm:w-auto px-6 py-2.5 bg-primary text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 hover:opacity-90 disabled:opacity-40 transition-all shadow-2xs"
-          >
-            {isAnalyzing ? <RotateCw className="w-4 h-4 animate-spin" /> : <Sparkles className="w-4 h-4" />}
-            <span>Analyze Text Content</span>
-          </button>
-        </form>
-      </div>
-
-      {/* Recent Workspace Section */}
-      <div className="space-y-4">
-        <div className="flex justify-between items-end px-1">
-          <div>
-            <h2 className="text-xl font-bold text-on-surface">Recent Workspace Archive</h2>
-            <p className="text-xs text-on-surface-variant">Your recently analyzed active documents and reports</p>
-          </div>
-          <span className="text-xs font-bold text-primary">{documents.length} Active Records</span>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {documents.map((doc) => (
-            <div
-              key={doc.id}
-              onClick={() => onSelectDoc(doc)}
-              className="bg-white border border-outline-variant/50 rounded-2xl p-5 shadow-2xs hover:shadow-md transition-all cursor-pointer group space-y-4"
-            >
-              <div className="flex items-start gap-3">
-                <div className="w-12 h-14 bg-surface-container-high rounded-xl border border-outline-variant flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform text-primary font-bold">
-                  <FileText className="w-6 h-6 text-primary" />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <h4 className="text-xs font-bold text-on-surface truncate group-hover:text-primary transition-colors">
-                    {doc.title}
-                  </h4>
-                  <p className="text-[10px] text-on-surface-variant mt-0.5">
-                    Uploaded: {doc.uploadDate} • Patient: {doc.patientName}
-                  </p>
-                  <div className="mt-2 flex items-center gap-1.5">
-                    <span className="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[9px] font-bold rounded-md uppercase tracking-wider">
-                      {doc.type.replace('_', ' ')}
-                    </span>
-                    <span className="px-2 py-0.5 bg-emerald-500/10 text-emerald-700 border border-emerald-500/20 text-[9px] font-bold rounded-md uppercase">
-                      Analyzed
-                    </span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            {/* Active Upload Card Demo */}
+            {isAnalyzing && (
+              <div className="bg-white border-2 border-primary/40 rounded-2xl p-5 shadow-2xs space-y-4">
+                <div className="flex items-start gap-4">
+                  <div className="w-14 h-18 bg-primary/5 rounded-xl border border-primary/20 flex items-center justify-center shrink-0">
+                    <RotateCw className="w-6 h-6 text-primary animate-spin" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="text-xs font-bold text-on-surface truncate">Analyzing New Document...</h4>
+                    <p className="text-[10px] text-on-surface-variant mt-1">Processing layout & terminology...</p>
+                    <div className="mt-3">
+                      <div className="flex justify-between text-[10px] font-bold mb-1">
+                        <span className="text-primary">72%</span>
+                        <span className="text-on-surface-variant italic">Analyzing structure...</span>
+                      </div>
+                      <div className="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+                        <div className="bg-primary h-full transition-all duration-300" style={{ width: '72%' }}></div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+            )}
 
-              <p className="text-xs text-on-surface-variant line-clamp-2 leading-relaxed bg-surface-container-low p-2.5 rounded-xl">
-                {doc.summary}
-              </p>
-
-              <div className="flex items-center justify-between text-xs text-primary font-bold pt-1">
-                <span>Open Analysis View</span>
-                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            {/* Static Mock Item 1 */}
+            <div 
+              onClick={() => onNavigateTab && onNavigateTab('summary')}
+              className="bg-white border border-outline-variant/50 rounded-2xl p-5 shadow-2xs hover:shadow-md transition-all cursor-pointer group space-y-3"
+            >
+              <div className="flex items-start gap-4">
+                <div className="w-14 h-18 bg-surface-container-low rounded-xl border border-outline-variant overflow-hidden shrink-0 group-hover:scale-105 transition-transform flex items-center justify-center bg-primary/5">
+                  <FileText className="w-7 h-7 text-primary" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex justify-between items-start">
+                    <h4 className="text-xs font-bold text-on-surface truncate pr-2 group-hover:text-primary transition-colors">
+                      Quantum_Computing.pdf
+                    </h4>
+                    <MoreVertical className="w-4 h-4 text-outline opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </div>
+                  <p className="text-[10px] text-on-surface-variant mt-1">1.8 MB • Analyzed 2h ago</p>
+                  <div className="mt-3 flex gap-1.5">
+                    <span className="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[9px] font-bold rounded uppercase tracking-wider">PHYSICS</span>
+                    <span className="px-2 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed text-[9px] font-bold rounded uppercase tracking-wider">COMPLEX</span>
+                  </div>
+                </div>
               </div>
             </div>
-          ))}
+
+            {/* Static Mock Item 2 */}
+            <div 
+              onClick={() => onNavigateTab && onNavigateTab('summary')}
+              className="bg-white border border-outline-variant/50 rounded-2xl p-5 shadow-2xs hover:shadow-md transition-all cursor-pointer group space-y-3"
+            >
+              <div className="flex items-start gap-4">
+                <div className="w-14 h-18 bg-surface-container-low rounded-xl border border-outline-variant overflow-hidden shrink-0 group-hover:scale-105 transition-transform flex items-center justify-center bg-tertiary/5">
+                  <FileText className="w-7 h-7 text-tertiary" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex justify-between items-start">
+                    <h4 className="text-xs font-bold text-on-surface truncate pr-2 group-hover:text-primary transition-colors">
+                      Architecture_Trends.pdf
+                    </h4>
+                    <MoreVertical className="w-4 h-4 text-outline opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </div>
+                  <p className="text-[10px] text-on-surface-variant mt-1">5.2 MB • Analyzed 1d ago</p>
+                  <div className="mt-3 flex gap-1.5">
+                    <span className="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[9px] font-bold rounded uppercase tracking-wider">DESIGN</span>
+                    <span className="px-2 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed text-[9px] font-bold rounded uppercase tracking-wider">VISUAL</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Active Analyzed Documents */}
+            {filteredDocs.map((doc) => (
+              <div
+                key={doc.id}
+                onClick={() => onSelectDoc(doc)}
+                className="bg-white border border-outline-variant/50 rounded-2xl p-5 shadow-2xs hover:shadow-md transition-all cursor-pointer group space-y-3"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-14 h-18 bg-surface-container-low rounded-xl border border-outline-variant overflow-hidden shrink-0 group-hover:scale-105 transition-transform flex items-center justify-center bg-primary/5">
+                    <FileText className="w-7 h-7 text-primary" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex justify-between items-start">
+                      <h4 className="text-xs font-bold text-on-surface truncate pr-2 group-hover:text-primary transition-colors">
+                        {doc.title}
+                      </h4>
+                      <MoreVertical className="w-4 h-4 text-outline opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </div>
+                    <p className="text-[10px] text-on-surface-variant mt-1">Uploaded {doc.uploadDate} • Patient: {doc.patientName}</p>
+                    <div className="mt-3 flex gap-1.5">
+                      <span className="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[9px] font-bold rounded uppercase tracking-wider">
+                        {doc.type.replace('_', ' ')}
+                      </span>
+                      <span className="px-2 py-0.5 bg-emerald-500/10 text-emerald-700 text-[9px] font-bold rounded uppercase">
+                        ACTIVE
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+
+          </div>
+        </section>
+
+      </main>
+
+      {/* Global Footer */}
+      <footer className="bg-surface-container-highest border-t border-outline-variant w-full py-10 flex flex-col items-center gap-4 text-xs text-on-surface-variant font-medium mt-auto">
+        <span className="text-xl font-black text-primary">DocMentor AI</span>
+        <div className="flex gap-6">
+          <button onClick={() => alert('Privacy Policy')} className="hover:underline">Privacy Policy</button>
+          <button onClick={() => alert('Terms of Service')} className="hover:underline">Terms of Service</button>
+          <button onClick={() => alert('Contact Support')} className="hover:underline">Contact Support</button>
         </div>
-      </div>
+        <p className="opacity-60">© 2025 DocMentor AI. All rights reserved.</p>
+      </footer>
 
     </div>
   );

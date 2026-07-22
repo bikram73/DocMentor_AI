@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { MedicalDocument } from './types';
 import { SAMPLE_DOCUMENTS } from './data/mockMedicalData';
+import { LandingPage } from './components/LandingPage';
 import { Navbar } from './components/Navbar';
 import { Sidebar } from './components/Sidebar';
 import { SummaryView } from './components/SummaryView';
@@ -13,7 +14,7 @@ import { UploadWorkspace } from './components/UploadWorkspace';
 import { SettingsView } from './components/SettingsView';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<string>('summary');
+  const [activeTab, setActiveTab] = useState<string>('landing');
   const [documents, setDocuments] = useState<MedicalDocument[]>(SAMPLE_DOCUMENTS);
   const [activeDoc, setActiveDoc] = useState<MedicalDocument | null>(SAMPLE_DOCUMENTS[0]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -95,6 +96,32 @@ export default function App() {
     return 'I am processing your inquiry using clinical guidelines and PubMed references. Please ensure your physician reviews all changes.';
   };
 
+  // Landing Page standalone full screen view
+  if (activeTab === 'landing') {
+    return (
+      <LandingPage
+        onGetStarted={() => setActiveTab('upload-workspace')}
+        onNavigateTab={(tab) => setActiveTab(tab)}
+      />
+    );
+  }
+
+  // Upload Workspace full width standalone view
+  if (activeTab === 'upload-workspace') {
+    return (
+      <UploadWorkspace
+        documents={documents}
+        onSelectDoc={(doc) => {
+          setActiveDoc(doc);
+          setActiveTab('summary');
+        }}
+        onUploadAndAnalyze={handleUploadAndAnalyze}
+        isAnalyzing={isAnalyzing}
+        onNavigateTab={(tab) => setActiveTab(tab)}
+      />
+    );
+  }
+
   return (
     <div className="min-h-screen bg-surface font-sans text-on-surface antialiased flex">
       
@@ -151,18 +178,6 @@ export default function App() {
 
           {activeTab === 'translate' && (
             <TranslateView />
-          )}
-
-          {activeTab === 'upload-workspace' && (
-            <UploadWorkspace
-              documents={documents}
-              onSelectDoc={(doc) => {
-                setActiveDoc(doc);
-                setActiveTab('summary');
-              }}
-              onUploadAndAnalyze={handleUploadAndAnalyze}
-              isAnalyzing={isAnalyzing}
-            />
           )}
 
           {activeTab === 'settings' && (
