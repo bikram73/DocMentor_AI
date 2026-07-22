@@ -39,7 +39,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ darkMode, setDarkMod
       </div>
 
       {/* Gemini API Status Card */}
-      <section className="bg-white border border-outline-variant/50 rounded-2xl p-6 shadow-2xs space-y-4">
+      <section className="bg-white dark:bg-slate-900 border border-outline-variant/50 dark:border-slate-800 rounded-2xl p-6 shadow-2xs space-y-4">
         <div className="flex items-center justify-between pb-3 border-b border-outline-variant/40">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-tertiary-container/10 flex items-center justify-center text-tertiary">
@@ -93,7 +93,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ darkMode, setDarkMod
       </section>
 
       {/* Appearance Section */}
-      <section className="bg-white border border-outline-variant/50 rounded-2xl p-6 shadow-2xs space-y-4">
+      <section className="bg-white dark:bg-slate-900 border border-outline-variant/50 dark:border-slate-800 rounded-2xl p-6 shadow-2xs space-y-4">
         <div className="flex items-center gap-3 pb-3 border-b border-outline-variant/40">
           <div className="w-10 h-10 rounded-xl bg-secondary-container/30 flex items-center justify-center text-secondary">
             <Palette className="w-5 h-5 text-secondary" />
@@ -117,7 +117,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ darkMode, setDarkMod
 
             <button
               onClick={() => setDarkMode(prev => !prev)}
-              className={`w-12 h-6 rounded-full transition-colors relative p-0.5 ${
+              className={`w-12 h-6 rounded-full transition-colors relative p-0.5 cursor-pointer ${
                 darkMode ? 'bg-primary' : 'bg-outline-variant'
               }`}
             >
@@ -138,7 +138,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ darkMode, setDarkMod
 
             <button
               onClick={() => setGlassEffects(prev => !prev)}
-              className={`w-12 h-6 rounded-full transition-colors relative p-0.5 ${
+              className={`w-12 h-6 rounded-full transition-colors relative p-0.5 cursor-pointer ${
                 glassEffects ? 'bg-primary' : 'bg-outline-variant'
               }`}
             >
@@ -155,7 +155,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ darkMode, setDarkMod
       <div className="grid grid-cols-1 gap-6">
         
         {/* Language Preferences */}
-        <section className="bg-white border border-outline-variant/50 rounded-2xl p-6 shadow-2xs space-y-4">
+        <section className="bg-white dark:bg-slate-900 border border-outline-variant/50 dark:border-slate-800 rounded-2xl p-6 shadow-2xs space-y-4">
           <div className="flex items-center gap-3 pb-3 border-b border-outline-variant/40">
             <div className="w-9 h-9 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary">
               <Languages className="w-5 h-5 text-secondary" />
@@ -182,7 +182,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ darkMode, setDarkMod
       </div>
 
       {/* Help & About */}
-      <section className="bg-white border border-outline-variant/50 rounded-2xl p-6 shadow-2xs space-y-4">
+      <section className="bg-white dark:bg-slate-900 border border-outline-variant/50 dark:border-slate-800 rounded-2xl p-6 shadow-2xs space-y-4">
         <div className="flex items-center gap-3 pb-3 border-b border-outline-variant/40">
           <div className="w-9 h-9 rounded-xl bg-on-surface-variant/10 flex items-center justify-center text-on-surface-variant">
             <HelpCircle className="w-5 h-5 text-on-surface-variant" />

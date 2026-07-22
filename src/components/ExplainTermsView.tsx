@@ -52,7 +52,7 @@ export const ExplainTermsView: React.FC<ExplainTermsProps> = () => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Search terms (e.g., eGFR, Troponin)..."
-            className="w-full bg-white border border-outline-variant/60 rounded-full pl-9 pr-4 py-2 text-xs text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20"
+            className="w-full bg-white dark:bg-slate-900 border border-outline-variant/60 dark:border-slate-800 rounded-full pl-9 pr-4 py-2 text-xs text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20"
           />
         </div>
       </div>
@@ -61,7 +61,7 @@ export const ExplainTermsView: React.FC<ExplainTermsProps> = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         
         {/* Left Panel: Extracted Terms List */}
-        <div className="lg:col-span-4 bg-white border border-outline-variant/50 rounded-2xl p-4 flex flex-col shadow-2xs h-[560px]">
+        <div className="lg:col-span-4 bg-white dark:bg-slate-900 border border-outline-variant/50 dark:border-slate-800 rounded-2xl p-4 flex flex-col shadow-2xs h-[560px]">
           <div className="flex items-center justify-between pb-3 border-b border-outline-variant/40 mb-3">
             <h3 className="text-sm font-bold text-on-surface">Extracted Terms</h3>
             <span className="bg-secondary-container text-on-secondary-container text-[10px] font-bold px-2.5 py-0.5 rounded-full">
@@ -105,7 +105,7 @@ export const ExplainTermsView: React.FC<ExplainTermsProps> = () => {
           
           {/* Difficulty Level Tabs */}
           <div className="flex items-center justify-between bg-surface-container-low p-1.5 rounded-2xl border border-outline-variant/40">
-            <div className="flex bg-white rounded-xl p-1 shadow-2xs">
+            <div className="flex bg-white dark:bg-slate-900 rounded-xl p-1 shadow-2xs">
               <button 
                 onClick={() => setDifficulty('beginner')}
                 className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${
@@ -135,7 +135,7 @@ export const ExplainTermsView: React.FC<ExplainTermsProps> = () => {
             <div className="flex gap-2">
               <button 
                 onClick={() => navigator.clipboard.writeText(`${selectedTerm.term}: ${selectedTerm.plainLanguage}`)}
-                className="p-2 rounded-xl bg-white border border-outline-variant/50 hover:bg-surface-container text-on-surface-variant transition-colors"
+                className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-outline-variant/50 dark:border-slate-800 hover:bg-surface-container text-on-surface-variant transition-colors cursor-pointer"
                 title="Copy Explanation"
               >
                 <Copy className="w-4 h-4" />
@@ -162,7 +162,7 @@ export const ExplainTermsView: React.FC<ExplainTermsProps> = () => {
                 <BookOpen className="w-4 h-4" />
                 <span>Plain Language Definition</span>
               </h4>
-              <p className="text-sm text-on-surface leading-relaxed font-medium bg-white p-4 rounded-xl border border-outline-variant/40">
+              <p className="text-sm text-on-surface leading-relaxed font-medium bg-white dark:bg-slate-900 p-4 rounded-xl border border-outline-variant/40 dark:border-slate-800">
                 {difficulty === 'beginner' 
                   ? selectedTerm.plainLanguage 
                   : difficulty === 'expert' 
@@ -230,7 +230,7 @@ export const ExplainTermsView: React.FC<ExplainTermsProps> = () => {
           </div>
 
           {/* AI Advisor Prompt Bar */}
-          <div className="bg-white rounded-2xl p-4 border border-outline-variant/50 shadow-2xs flex items-center gap-4">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-outline-variant/50 dark:border-slate-800 shadow-2xs flex items-center gap-4">
             <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
               <Bot className="w-5 h-5 text-primary" />
             </div>

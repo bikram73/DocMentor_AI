@@ -229,7 +229,7 @@ export const ChatView: React.FC<ChatViewProps> = ({ document, onSendMessage }) =
           <button
             key={i}
             onClick={() => handleSend(prompt)}
-            className="px-3 py-1 bg-white border border-outline-variant/60 rounded-full text-xs font-semibold text-on-surface-variant hover:bg-primary/10 hover:text-primary hover:border-primary transition-all shrink-0"
+            className="px-3 py-1 bg-white dark:bg-slate-900 border border-outline-variant/60 dark:border-slate-800 rounded-full text-xs font-semibold text-on-surface-variant hover:bg-primary/10 hover:text-primary hover:border-primary transition-all shrink-0 cursor-pointer"
           >
             {prompt}
           </button>
@@ -237,7 +237,7 @@ export const ChatView: React.FC<ChatViewProps> = ({ document, onSendMessage }) =
       </div>
 
       {/* Input Area */}
-      <div className="p-4 bg-white border-t border-outline-variant/40">
+      <div className="p-4 bg-white dark:bg-slate-900 border-t border-outline-variant/40 dark:border-slate-800">
         <div className="relative bg-surface-container-low border border-outline-variant/60 rounded-2xl p-2.5 flex items-end gap-2 focus-within:ring-2 focus-within:ring-primary/20 focus-within:border-primary transition-all">
           <button 
             onClick={() => alert('Attachment supported: Upload PDF or Scanned Document image.')}

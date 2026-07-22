@@ -96,19 +96,19 @@ export const TranslateView: React.FC<TranslateViewProps> = () => {
           <select 
             value={sourceLang}
             onChange={(e) => setSourceLanguage(e.target.value)}
-            className="flex-1 max-w-[200px] bg-white border border-outline-variant/60 rounded-xl px-4 py-2.5 text-xs font-bold text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20"
+            className="flex-1 max-w-[200px] bg-white dark:bg-slate-900 border border-outline-variant/60 dark:border-slate-800 rounded-xl px-4 py-2.5 text-xs font-bold text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20"
           >
-            <option value="English">English</option>
-            <option value="Spanish">Spanish (Español)</option>
-            <option value="French">French (Français)</option>
-            <option value="German">German (Deutsch)</option>
-            <option value="Mandarin">Mandarin (中文)</option>
-            <option value="Japanese">Japanese (日本語)</option>
+            <option value="English" className="bg-white dark:bg-slate-900">English</option>
+            <option value="Spanish" className="bg-white dark:bg-slate-900">Spanish (Español)</option>
+            <option value="French" className="bg-white dark:bg-slate-900">French (Français)</option>
+            <option value="German" className="bg-white dark:bg-slate-900">German (Deutsch)</option>
+            <option value="Mandarin" className="bg-white dark:bg-slate-900">Mandarin (中文)</option>
+            <option value="Japanese" className="bg-white dark:bg-slate-900">Japanese (日本語)</option>
           </select>
 
           <button 
             onClick={handleSwap}
-            className="p-2.5 rounded-xl bg-white border border-outline-variant/60 text-primary hover:bg-primary/10 transition-colors shrink-0 shadow-2xs"
+            className="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-outline-variant/60 dark:border-slate-800 text-primary hover:bg-primary/10 transition-colors shrink-0 shadow-2xs cursor-pointer"
             title="Swap Languages"
           >
             <ArrowRightLeft className="w-4 h-4" />
@@ -117,14 +117,14 @@ export const TranslateView: React.FC<TranslateViewProps> = () => {
           <select 
             value={targetLang}
             onChange={(e) => setTargetLanguage(e.target.value)}
-            className="flex-1 max-w-[200px] bg-white border border-outline-variant/60 rounded-xl px-4 py-2.5 text-xs font-bold text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20"
+            className="flex-1 max-w-[200px] bg-white dark:bg-slate-900 border border-outline-variant/60 dark:border-slate-800 rounded-xl px-4 py-2.5 text-xs font-bold text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20"
           >
-            <option value="Spanish">Spanish (Español)</option>
-            <option value="German">German (Deutsch)</option>
-            <option value="French">French (Français)</option>
-            <option value="English">English</option>
-            <option value="Mandarin">Mandarin (中文)</option>
-            <option value="Japanese">Japanese (日本語)</option>
+            <option value="Spanish" className="bg-white dark:bg-slate-900">Spanish (Español)</option>
+            <option value="German" className="bg-white dark:bg-slate-900">German (Deutsch)</option>
+            <option value="French" className="bg-white dark:bg-slate-900">French (Français)</option>
+            <option value="English" className="bg-white dark:bg-slate-900">English</option>
+            <option value="Mandarin" className="bg-white dark:bg-slate-900">Mandarin (中文)</option>
+            <option value="Japanese" className="bg-white dark:bg-slate-900">Japanese (日本語)</option>
           </select>
 
         </div>
@@ -144,8 +144,8 @@ export const TranslateView: React.FC<TranslateViewProps> = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-[420px]">
         
         {/* Left: Source Input Panel */}
-        <div className="glass-card rounded-2xl flex flex-col overflow-hidden shadow-2xs border border-outline-variant/50">
-          <div className="px-5 py-3 border-b border-outline-variant/30 flex justify-between items-center bg-white/60">
+        <div className="glass-card rounded-2xl flex flex-col overflow-hidden shadow-2xs border border-outline-variant/50 dark:border-slate-800">
+          <div className="px-5 py-3 border-b border-outline-variant/30 dark:border-slate-800 flex justify-between items-center bg-white/60 dark:bg-slate-900/60">
             <span className="text-xs font-bold text-primary">Original Text ({sourceLang})</span>
             <div className="flex gap-1">
               <button 
@@ -165,14 +165,14 @@ export const TranslateView: React.FC<TranslateViewProps> = () => {
             className="flex-1 p-5 bg-transparent border-none focus:outline-none resize-none text-sm text-on-surface leading-relaxed placeholder:text-outline"
           />
 
-          <div className="p-3 border-t border-outline-variant/20 flex justify-between items-center text-[10px] text-outline font-mono">
+          <div className="p-3 border-t border-outline-variant/20 dark:border-slate-800 flex justify-between items-center text-[10px] text-outline font-mono">
             <span>{originalText.length} / 5,000 characters</span>
           </div>
         </div>
 
         {/* Right: Output Translation Panel */}
-        <div className="glass-card rounded-2xl flex flex-col overflow-hidden shadow-2xs border border-outline-variant/50 bg-surface-container-lowest">
-          <div className="px-5 py-3 border-b border-outline-variant/30 flex justify-between items-center bg-white/60">
+        <div className="glass-card rounded-2xl flex flex-col overflow-hidden shadow-2xs border border-outline-variant/50 dark:border-slate-800 bg-surface-container-lowest">
+          <div className="px-5 py-3 border-b border-outline-variant/30 dark:border-slate-800 flex justify-between items-center bg-white/60 dark:bg-slate-900/60">
             <span className="text-xs font-bold text-tertiary">Translated Output ({targetLang})</span>
             <div className="flex gap-1">
               <button 
@@ -192,7 +192,7 @@ export const TranslateView: React.FC<TranslateViewProps> = () => {
             </div>
           </div>
 
-          <div className="flex-1 p-5 overflow-y-auto text-sm text-on-surface leading-relaxed bg-white/40">
+          <div className="flex-1 p-5 overflow-y-auto text-sm text-on-surface leading-relaxed bg-white/40 dark:bg-slate-900/40">
             {translatedText ? (
               <p className="whitespace-pre-wrap">{translatedText}</p>
             ) : (
@@ -201,7 +201,7 @@ export const TranslateView: React.FC<TranslateViewProps> = () => {
           </div>
 
           {/* Feedback Bar */}
-          <div className="p-3 border-t border-outline-variant/20 flex justify-between items-center bg-white/60 text-xs">
+          <div className="p-3 border-t border-outline-variant/20 dark:border-slate-800 flex justify-between items-center bg-white/60 dark:bg-slate-900/60 text-xs">
             <span className="text-[11px] text-on-surface-variant font-medium">Was this translation accurate?</span>
             <div className="flex gap-2">
               <button onClick={() => alert('Thank you for feedback!')} className="hover:text-primary transition-colors">

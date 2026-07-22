@@ -65,10 +65,10 @@ export const SummaryView: React.FC<SummaryViewProps> = ({ document, onSelectDoc,
               if (selected) onSelectDoc(selected);
             }}
             value={doc?.id}
-            className="bg-white border border-outline-variant rounded-xl px-3 py-2 text-xs font-bold text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20"
+            className="bg-white dark:bg-slate-900 border border-outline-variant dark:border-slate-800 rounded-xl px-3 py-2 text-xs font-bold text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20"
           >
             {documents.map(d => (
-              <option key={d.id} value={d.id}>{d.title}</option>
+              <option key={d.id} value={d.id} className="bg-white dark:bg-slate-900 text-on-surface">{d.title}</option>
             ))}
           </select>
         </div>
@@ -81,7 +81,7 @@ export const SummaryView: React.FC<SummaryViewProps> = ({ document, onSelectDoc,
         <div 
           onClick={() => setActiveTab('quick')}
           className={`glass-card p-6 rounded-2xl shadow-xs hover:shadow-md transition-all cursor-pointer group border ${
-            activeTab === 'quick' ? 'ring-2 ring-primary border-primary bg-white' : 'hover:-translate-y-1'
+            activeTab === 'quick' ? 'ring-2 ring-primary border-primary bg-white dark:bg-slate-900' : 'hover:-translate-y-1'
           }`}
         >
           <div className="flex justify-between items-start mb-4">
@@ -106,7 +106,7 @@ export const SummaryView: React.FC<SummaryViewProps> = ({ document, onSelectDoc,
         <div 
           onClick={() => setActiveTab('detailed')}
           className={`glass-card p-6 rounded-2xl shadow-xs hover:shadow-md transition-all cursor-pointer group border ${
-            activeTab === 'detailed' ? 'ring-2 ring-primary border-primary bg-white' : 'hover:-translate-y-1'
+            activeTab === 'detailed' ? 'ring-2 ring-primary border-primary bg-white dark:bg-slate-900' : 'hover:-translate-y-1'
           }`}
         >
           <div className="flex justify-between items-start mb-4">
@@ -128,7 +128,7 @@ export const SummaryView: React.FC<SummaryViewProps> = ({ document, onSelectDoc,
         <div 
           onClick={() => setActiveTab('takeaways')}
           className={`glass-card p-6 rounded-2xl shadow-xs hover:shadow-md transition-all cursor-pointer group border ${
-            activeTab === 'takeaways' ? 'ring-2 ring-primary border-primary bg-white' : 'hover:-translate-y-1'
+            activeTab === 'takeaways' ? 'ring-2 ring-primary border-primary bg-white dark:bg-slate-900' : 'hover:-translate-y-1'
           }`}
         >
           <div className="flex justify-between items-start mb-4">
@@ -149,7 +149,7 @@ export const SummaryView: React.FC<SummaryViewProps> = ({ document, onSelectDoc,
       </div>
 
       {/* Main AI Summary Canvas */}
-      <section className="bg-white rounded-2xl border border-outline-variant/60 shadow-sm overflow-hidden flex flex-col">
+      <section className="bg-white dark:bg-slate-900 rounded-2xl border border-outline-variant/60 dark:border-slate-800 shadow-xs overflow-hidden flex flex-col">
         
         {/* Canvas Toolbar */}
         <div className="flex flex-wrap items-center justify-between p-6 border-b border-outline-variant/40 bg-surface-container-lowest gap-4">
