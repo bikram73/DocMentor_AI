@@ -8,10 +8,13 @@
 ![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
 ![Google Gemini AI](https://img.shields.io/badge/Google_Gemini_3.6_Flash-8E75B2?style=for-the-badge&logo=google-cloud&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js_22-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+[![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/bikram73/DocMentor_AI)
 
 <br />
 
 **DocMentor AI** is an advanced full-stack AI platform designed to analyze complex medical documents (lab reports, radiologic imaging scans, discharge summaries, prescriptions), evaluate clinical symptoms for differential diagnosis, simplify complex medical jargon into 6th-grade plain language, and provide interactive 24/7 specialist AI consultation.
+
+🔗 **GitHub Repository**: [https://github.com/bikram73/DocMentor_AI](https://github.com/bikram73/DocMentor_AI)
 
 </div>
 
@@ -150,8 +153,8 @@
 
 ### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/your-username/docmentor-ai.git
-cd docmentor-ai
+git clone https://github.com/bikram73/DocMentor_AI.git
+cd DocMentor_AI
 ```
 
 ### Step 2: Install Dependencies
