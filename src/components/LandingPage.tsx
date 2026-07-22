@@ -60,14 +60,6 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onGetStarted, onNaviga
             <Upload className="w-4 h-4" />
             <span>Upload PDF</span>
           </button>
-
-          <div className="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high border-2 border-primary/20 shadow-2xs shrink-0">
-            <img 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgYkLklabfzLDoKxc5dS1gZs9iccKgRAIiLdy2tGCJTPwdhXYXHgd4seh-37qp_0UbSzQeibwYktDIgWuZkG1tpu0f0lEm_ix6l6KwZYEl5vbhX4pBQd-ZnIU07T67dsEJX5r5wTvSGqPGCtQBVXpM-KMLhTizvXyintWKuoZJZ9QUSMvNZWBZ4-eryynT_GJ9Lp95heL5YEoqLEEmSa_Fay69K-rNE9sKVZyXPU-_i_b3IkPJIdl5" 
-              alt="Dr. Sarah Chen User Avatar" 
-              className="w-full h-full object-cover"
-            />
-          </div>
         </div>
       </header>
 

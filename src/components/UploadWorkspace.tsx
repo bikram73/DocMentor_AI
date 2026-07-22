@@ -126,14 +126,6 @@ export const UploadWorkspace: React.FC<UploadWorkspaceProps> = ({
             <Upload className="w-4 h-4" />
             <span>Upload PDF</span>
           </button>
-
-          <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/20 shrink-0">
-            <img 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQEkq4w3-ZnOSStMS6hGfa5u7mZ6cFSdjwUtIz4lk5xAnAqZMAjK8lktQaycobNRoP447GO_JSRo0sfZ9X_2gGWxRzfmZI-fxjnlv5zD9tUNJC7jtE6ITjGG1pjTgvppexq32lhhNFNJbX8LpscW9OouUEDZRJz_ugeSCTDHiAWvxLTEmbMs-Z6lQtQwi1FUNKtkYNDiUHv7muGml8NYfZ_4PJWro43Ge-eaODVfndQpxME8XcQtEK" 
-              alt="Researcher Portrait" 
-              className="w-full h-full object-cover"
-            />
-          </div>
         </div>
       </nav>
 

@@ -151,50 +151,16 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ darkMode, setDarkMod
         </div>
       </section>
 
-      {/* Account & Language Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* Language Grid */}
+      <div className="grid grid-cols-1 gap-6">
         
-        {/* Account Profile */}
-        <section className="bg-white border border-outline-variant/50 rounded-2xl p-6 shadow-2xs space-y-4">
-          <div className="flex items-center gap-3 pb-3 border-b border-outline-variant/40">
-            <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
-              <User className="w-5 h-5 text-primary" />
-            </div>
-            <h3 className="text-base font-bold text-on-surface">Account Profile</h3>
-          </div>
-
-          <div className="space-y-3">
-            <div className="flex items-center gap-3 p-2">
-              <div className="w-11 h-11 rounded-full overflow-hidden border-2 border-primary/20 shrink-0">
-                <img 
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgYkLklabfzLDoKxc5dS1gZs9iccKgRAIiLdy2tGCJTPwdhXYXHgd4seh-37qp_0UbSzQeibwYktDIgWuZkG1tpu0f0lEm_ix6l6KwZYEl5vbhX4pBQd-ZnIU07T67dsEJX5r5wTvSGqPGCtQBVXpM-KMLhTizvXyintWKuoZJZ9QUSMvNZWBZ4-eryynT_GJ9Lp95heL5YEoqLEEmSa_Fay69K-rNE9sKVZyXPU-_i_b3IkPJIdl5" 
-                  alt="Dr. Sarah Chen Avatar" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div>
-                <p className="text-xs font-bold text-on-surface">Dr. Sarah Chen, MD</p>
-                <p className="text-[11px] text-on-surface-variant">sarah.chen@docmentor.ai</p>
-              </div>
-            </div>
-
-            <button 
-              onClick={() => alert('Account Settings modal')}
-              className="w-full p-3 rounded-xl hover:bg-surface-container-low transition-colors flex items-center justify-between text-xs font-bold text-on-surface border border-outline-variant/30"
-            >
-              <span>Personal Information</span>
-              <ChevronRight className="w-4 h-4 text-outline" />
-            </button>
-          </div>
-        </section>
-
         {/* Language Preferences */}
         <section className="bg-white border border-outline-variant/50 rounded-2xl p-6 shadow-2xs space-y-4">
           <div className="flex items-center gap-3 pb-3 border-b border-outline-variant/40">
             <div className="w-9 h-9 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary">
               <Languages className="w-5 h-5 text-secondary" />
             </div>
-            <h3 className="text-base font-bold text-on-surface">Language Preferences</h3>
+            <h3 className="text-base font-bold text-on-surface">Language & Region Preferences</h3>
           </div>
 
           <div className="space-y-3">
@@ -203,7 +169,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ darkMode, setDarkMod
               <select 
                 value={appLang}
                 onChange={(e) => setAppLang(e.target.value)}
-                className="w-full px-3 py-2 bg-surface-container-low border border-outline-variant/60 rounded-xl text-xs font-bold text-on-surface focus:outline-none"
+                className="w-full px-3 py-2.5 bg-surface-container-low border border-outline-variant/60 rounded-xl text-xs font-bold text-on-surface focus:outline-none"
               >
                 <option value="English (United States)">English (United States)</option>
                 <option value="Spanish (Español)">Spanish (Español)</option>

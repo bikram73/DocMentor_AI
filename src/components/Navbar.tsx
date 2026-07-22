@@ -67,19 +67,6 @@ export const Navbar: React.FC<NavbarProps> = ({
           <Bell className="w-5 h-5" />
           <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span>
         </button>
-
-        <div className="h-6 w-px bg-outline-variant/60 hidden sm:block"></div>
-
-        <div className="flex items-center gap-2.5">
-          <span className="hidden lg:block text-xs font-bold text-on-surface-variant">Dr. Sarah Chen</span>
-          <div className="w-9 h-9 rounded-full border-2 border-primary/20 overflow-hidden shadow-2xs bg-surface-container-high shrink-0">
-            <img 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgYkLklabfzLDoKxc5dS1gZs9iccKgRAIiLdy2tGCJTPwdhXYXHgd4seh-37qp_0UbSzQeibwYktDIgWuZkG1tpu0f0lEm_ix6l6KwZYEl5vbhX4pBQd-ZnIU07T67dsEJX5r5wTvSGqPGCtQBVXpM-KMLhTizvXyintWKuoZJZ9QUSMvNZWBZ4-eryynT_GJ9Lp95heL5YEoqLEEmSa_Fay69K-rNE9sKVZyXPU-_i_b3IkPJIdl5" 
-              alt="Dr. Sarah Chen Avatar"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
       </div>
 
     </header>
