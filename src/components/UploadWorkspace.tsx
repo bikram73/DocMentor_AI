@@ -90,7 +90,7 @@ export const UploadWorkspace: React.FC<UploadWorkspaceProps> = ({
   );
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col -m-4 sm:-m-6 lg:-m-8 transition-colors">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col transition-colors">
       
       {/* Top Navigation Bar */}
       <nav className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-lg border-b border-slate-200 dark:border-slate-800 shadow-xs flex justify-between items-center w-full px-6 sm:px-10 py-4 sticky top-0 z-50">

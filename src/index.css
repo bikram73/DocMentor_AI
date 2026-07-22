@@ -147,56 +147,41 @@ body {
 }
 
 .dark body {
-  background-color: #0f172a !important;
-  color: #f8fafc !important;
-}
-
-.dark .glass-card {
-  background: rgba(30, 41, 59, 0.85) !important;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-color: #334155 !important;
-  color: #f8fafc !important;
-}
-
-.dark .glass-panel {
-  background: rgba(15, 23, 42, 0.85) !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  color: #f8fafc !important;
-}
-
-.dark .bg-white,
-.dark .bg-white\/80,
-.dark .bg-white\/90,
-.dark .bg-white\/50 {
-  background-color: #1e293b !important;
+  background-color: #0f172a;
   color: #f8fafc;
 }
 
-.dark header,
-.dark nav {
-  background-color: rgba(15, 23, 42, 0.9) !important;
-  border-color: rgba(51, 65, 85, 0.8) !important;
+.dark .glass-card {
+  background: rgba(30, 41, 59, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-color: #334155;
+  color: #f8fafc;
 }
 
-.dark .bg-\[\#F8FAFC\],
+.dark .glass-panel {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #f8fafc;
+}
+
 .dark .bg-surface-container-lowest {
-  background-color: #0f172a !important;
+  background-color: #0f172a;
 }
 
 .dark .bg-surface-container-low,
 .dark .bg-surface-container,
 .dark .bg-surface-container-high {
-  background-color: #1e293b !important;
+  background-color: #1e293b;
 }
 
 .dark .text-on-surface {
-  color: #f8fafc !important;
+  color: #f8fafc;
 }
 
 .dark .text-on-surface-variant {
-  color: #94a3b8 !important;
+  color: #94a3b8;
 }
 
 .dark .border-outline-variant\/30,
@@ -205,15 +190,7 @@ body {
 .dark .border-outline-variant\/60,
 .dark .border-outline-variant\/70,
 .dark .border-outline-variant {
-  border-color: #334155 !important;
-}
-
-.dark input,
-.dark textarea,
-.dark select {
-  background-color: #0f172a !important;
-  color: #f8fafc !important;
-  border-color: #334155 !important;
+  border-color: #334155;
 }
 
 .dark ::-webkit-scrollbar-thumb {

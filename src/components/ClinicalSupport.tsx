@@ -117,18 +117,18 @@ export const ClinicalSupport: React.FC<ClinicalSupportProps> = ({
     <div className="space-y-6">
       
       {/* Header Info */}
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-md flex items-start justify-between">
+      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-xs flex items-start justify-between">
         <div>
           <div className="flex items-center space-x-2">
-            <Stethoscope className="w-5 h-5 text-amber-400" />
-            <h2 className="text-lg font-bold text-white">Clinical Decision Support & Symptom Triage</h2>
+            <Stethoscope className="w-5 h-5 text-amber-500" />
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white">Clinical Decision Support & Symptom Triage</h2>
           </div>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
             Input patient symptoms and vitals to generate evidence-based differential diagnoses, ICD-10 suggestions, and triage priorities.
           </p>
         </div>
 
-        <span className="text-[11px] px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700 font-mono">
+        <span className="text-[11px] px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 font-mono">
           Model: Gemini 3.6 Flash
         </span>
       </div>
@@ -136,43 +136,43 @@ export const ClinicalSupport: React.FC<ClinicalSupportProps> = ({
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         
         {/* Input Form Column */}
-        <div className="lg:col-span-5 bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4 shadow-md">
-          <h3 className="text-sm font-bold text-white border-b border-slate-800 pb-2">
+        <div className="lg:col-span-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 space-y-4 shadow-xs">
+          <h3 className="text-sm font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-2">
             Patient Symptom Profile
           </h3>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1">
+              <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
                 Primary Symptoms & Chief Complaints
               </label>
               <textarea
                 value={symptoms}
                 onChange={(e) => setSymptoms(e.target.value)}
                 placeholder="Describe current symptoms (e.g. constant fatigue, excessive thirst, nighttime urination, mild morning lightheadedness)..."
-                className="w-full h-28 bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 resize-none"
+                className="w-full h-28 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl p-3 text-xs text-slate-800 dark:text-slate-200 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 resize-none"
               />
             </div>
 
             {/* Demographics */}
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1">Age (Years)</label>
+                <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Age (Years)</label>
                 <input
                   type="number"
                   value={age}
                   onChange={(e) => setAge(Number(e.target.value))}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-slate-200 focus:outline-none focus:border-amber-500"
+                  className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg p-2 text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-amber-500"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1">Biological Sex</label>
+                <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Biological Sex</label>
                 <select
                   value={gender}
                   onChange={(e) => setGender(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-slate-200 focus:outline-none focus:border-amber-500"
+                  className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg p-2 text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-amber-500"
                 >
                   <option value="Female">Female</option>
                   <option value="Male">Male</option>
@@ -182,48 +182,48 @@ export const ClinicalSupport: React.FC<ClinicalSupportProps> = ({
             </div>
 
             {/* Vitals Inputs */}
-            <div className="bg-slate-950 border border-slate-800/80 rounded-xl p-3 space-y-3">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-amber-400 block">
+            <div className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800/80 rounded-xl p-3 space-y-3">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400 block">
                 Current Vital Signs
               </span>
 
               <div className="grid grid-cols-2 gap-3 text-xs">
                 <div>
-                  <label className="text-slate-400 text-[10px] block">Heart Rate (bpm)</label>
+                  <label className="text-slate-500 dark:text-slate-400 text-[10px] block">Heart Rate (bpm)</label>
                   <input
                     type="number"
                     value={heartRate}
                     onChange={(e) => setHeartRate(Number(e.target.value))}
-                    className="w-full bg-slate-900 border border-slate-800 rounded p-1.5 text-slate-200"
+                    className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded p-1.5 text-slate-800 dark:text-slate-200"
                   />
                 </div>
 
                 <div>
-                  <label className="text-slate-400 text-[10px] block">Blood Pressure (mmHg)</label>
+                  <label className="text-slate-500 dark:text-slate-400 text-[10px] block">Blood Pressure (mmHg)</label>
                   <div className="flex items-center space-x-1">
                     <input
                       type="number"
                       value={systolicBP}
                       onChange={(e) => setSystolicBP(Number(e.target.value))}
-                      className="w-full bg-slate-900 border border-slate-800 rounded p-1.5 text-slate-200"
+                      className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded p-1.5 text-slate-800 dark:text-slate-200"
                     />
-                    <span className="text-slate-500">/</span>
+                    <span className="text-slate-400">/</span>
                     <input
                       type="number"
                       value={diastolicBP}
                       onChange={(e) => setDiastolicBP(Number(e.target.value))}
-                      className="w-full bg-slate-900 border border-slate-800 rounded p-1.5 text-slate-200"
+                      className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded p-1.5 text-slate-800 dark:text-slate-200"
                     />
                   </div>
                 </div>
 
                 <div className="col-span-2">
-                  <label className="text-slate-400 text-[10px] block">Fasting Blood Sugar (mg/dL)</label>
+                  <label className="text-slate-500 dark:text-slate-400 text-[10px] block">Fasting Blood Sugar (mg/dL)</label>
                   <input
                     type="number"
                     value={bloodSugar}
                     onChange={(e) => setBloodSugar(Number(e.target.value))}
-                    className="w-full bg-slate-900 border border-slate-800 rounded p-1.5 text-slate-200"
+                    className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded p-1.5 text-slate-800 dark:text-slate-200"
                   />
                 </div>
               </div>
@@ -232,7 +232,7 @@ export const ClinicalSupport: React.FC<ClinicalSupportProps> = ({
             <button
               type="submit"
               disabled={isProcessing}
-              className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-bold py-2.5 px-4 rounded-xl text-xs flex items-center justify-center space-x-2 shadow-md shadow-amber-500/20 transition-all"
+              className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white dark:text-slate-950 font-bold py-2.5 px-4 rounded-xl text-xs flex items-center justify-center space-x-2 shadow-md shadow-amber-500/20 transition-all cursor-pointer"
             >
               {isProcessing ? (
                 <>
@@ -252,12 +252,12 @@ export const ClinicalSupport: React.FC<ClinicalSupportProps> = ({
         {/* Output Results Column */}
         <div className="lg:col-span-7 space-y-5">
           {result ? (
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-5 shadow-lg">
+            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 space-y-5 shadow-xs">
               
               {/* Urgency Badge Header */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-950 p-4 rounded-xl border border-slate-800">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-50 dark:bg-slate-950 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
                 <div>
-                  <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">
+                  <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider block">
                     Recommended Triage Level
                   </span>
                   <div className="flex items-center space-x-2 mt-1">
@@ -268,25 +268,25 @@ export const ClinicalSupport: React.FC<ClinicalSupportProps> = ({
                 </div>
 
                 <div className="text-right">
-                  <span className="text-[10px] text-slate-400 block">Recommended Specialist</span>
-                  <span className="text-xs font-bold text-teal-300">{result.recommendedSpecialist}</span>
+                  <span className="text-[10px] text-slate-500 dark:text-slate-400 block">Recommended Specialist</span>
+                  <span className="text-xs font-bold text-primary dark:text-teal-300">{result.recommendedSpecialist}</span>
                 </div>
               </div>
 
               {/* Clinical Summary */}
-              <div className="bg-slate-950/60 p-4 rounded-xl border border-slate-800 space-y-1">
-                <p className="text-xs font-bold text-slate-300">Clinical Evaluation Overview</p>
-                <p className="text-xs text-slate-200 leading-relaxed">{result.primarySummary}</p>
+              <div className="bg-slate-50 dark:bg-slate-950/60 p-4 rounded-xl border border-slate-200 dark:border-slate-800 space-y-1">
+                <p className="text-xs font-bold text-slate-800 dark:text-slate-300">Clinical Evaluation Overview</p>
+                <p className="text-xs text-slate-700 dark:text-slate-200 leading-relaxed">{result.primarySummary}</p>
               </div>
 
               {/* Red Flag Warnings */}
               {result.redFlagWarnings.length > 0 && (
-                <div className="bg-rose-950/30 border border-rose-800/40 rounded-xl p-3.5 space-y-2">
-                  <div className="flex items-center space-x-2 text-rose-400 font-bold text-xs">
+                <div className="bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-800/40 rounded-xl p-3.5 space-y-2">
+                  <div className="flex items-center space-x-2 text-rose-600 dark:text-rose-400 font-bold text-xs">
                     <ShieldAlert className="w-4 h-4" />
                     <span>Red Flag Triage Warnings (Seek immediate care if present)</span>
                   </div>
-                  <ul className="space-y-1 text-xs text-rose-200/90 pl-6 list-disc">
+                  <ul className="space-y-1 text-xs text-rose-800 dark:text-rose-200/90 pl-6 list-disc">
                     {result.redFlagWarnings.map((flag, idx) => (
                       <li key={idx}>{flag}</li>
                     ))}
@@ -296,43 +296,43 @@ export const ClinicalSupport: React.FC<ClinicalSupportProps> = ({
 
               {/* Differential Diagnosis Cards */}
               <div className="space-y-3">
-                <h4 className="text-xs font-bold text-white uppercase tracking-wider flex items-center space-x-2">
-                  <Activity className="w-4 h-4 text-amber-400" />
+                <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center space-x-2">
+                  <Activity className="w-4 h-4 text-amber-500" />
                   <span>Ranked Differential Diagnoses</span>
                 </h4>
 
                 <div className="space-y-3">
                   {result.differentialDiagnoses.map((item, idx) => (
-                    <div key={idx} className="bg-slate-950 border border-slate-800 rounded-xl p-4 space-y-2">
+                    <div key={idx} className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl p-4 space-y-2">
                       <div className="flex items-start justify-between">
                         <div>
                           <div className="flex items-center space-x-2">
-                            <h5 className="text-xs font-bold text-white">{item.condition}</h5>
-                            <span className="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-teal-300 font-mono border border-slate-700">
+                            <h5 className="text-xs font-bold text-slate-900 dark:text-white">{item.condition}</h5>
+                            <span className="text-[10px] px-2 py-0.5 rounded bg-white dark:bg-slate-800 text-primary dark:text-teal-300 font-mono border border-slate-200 dark:border-slate-700">
                               ICD: {item.icd10Code}
                             </span>
                           </div>
-                          <p className="text-[11px] text-slate-400 mt-0.5">{item.clinicalRationale}</p>
+                          <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-0.5">{item.clinicalRationale}</p>
                         </div>
 
                         <div className="text-right">
-                          <span className="text-sm font-extrabold text-amber-400">{item.probabilityScore}%</span>
+                          <span className="text-sm font-extrabold text-amber-600 dark:text-amber-400">{item.probabilityScore}%</span>
                           <span className="text-[9px] text-slate-500 block">Match Score</span>
                         </div>
                       </div>
 
                       {/* Progress bar */}
-                      <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                      <div className="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
                         <div
-                          className="bg-gradient-to-r from-amber-500 to-teal-400 h-full rounded-full"
+                          className="bg-gradient-to-r from-amber-500 to-primary h-full rounded-full"
                           style={{ width: `${item.probabilityScore}%` }}
                         ></div>
                       </div>
 
                       <div className="pt-2 flex flex-wrap gap-2 text-[10px]">
-                        <span className="text-slate-400 font-semibold">Recommended Tests:</span>
+                        <span className="text-slate-500 dark:text-slate-400 font-semibold">Recommended Tests:</span>
                         {item.recommendedTests.map((t, tidx) => (
-                          <span key={tidx} className="bg-slate-900 text-slate-300 px-2 py-0.5 rounded border border-slate-800">
+                          <span key={tidx} className="bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-800">
                             {t}
                           </span>
                         ))}
@@ -344,10 +344,10 @@ export const ClinicalSupport: React.FC<ClinicalSupportProps> = ({
 
             </div>
           ) : (
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-12 text-center space-y-3">
-              <Stethoscope className="w-12 h-12 text-slate-600 mx-auto" />
-              <h3 className="text-base font-bold text-white">Enter Symptoms to Begin</h3>
-              <p className="text-xs text-slate-400 max-w-sm mx-auto">
+            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-12 text-center space-y-3">
+              <Stethoscope className="w-12 h-12 text-slate-400 dark:text-slate-600 mx-auto" />
+              <h3 className="text-base font-bold text-slate-900 dark:text-white">Enter Symptoms to Begin</h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400 max-w-sm mx-auto">
                 Fill in the patient symptom profile on the left to generate differential diagnoses and triage recommendations.
               </p>
             </div>
