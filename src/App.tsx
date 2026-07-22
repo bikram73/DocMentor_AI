@@ -102,6 +102,8 @@ export default function App() {
       <LandingPage
         onGetStarted={() => setActiveTab('upload-workspace')}
         onNavigateTab={(tab) => setActiveTab(tab)}
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
       />
     );
   }
@@ -118,6 +120,8 @@ export default function App() {
         onUploadAndAnalyze={handleUploadAndAnalyze}
         isAnalyzing={isAnalyzing}
         onNavigateTab={(tab) => setActiveTab(tab)}
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
       />
     );
   }
@@ -144,6 +148,8 @@ export default function App() {
           activeTab={activeTab}
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
+          darkMode={darkMode}
+          setDarkMode={setDarkMode}
         />
 
         {/* Tab Content Stage */}

@@ -110,3 +110,63 @@
   background: #94a3b8;
 }
 
+/* Dark Mode Overrides */
+.dark {
+  --color-surface: #0f172a;
+  --color-surface-bright: #1e293b;
+  --color-surface-dim: #0b1120;
+  --color-surface-container-low: #1e293b;
+  --color-surface-container: #182234;
+  --color-surface-container-high: #243147;
+  --color-surface-container-highest: #2d3d57;
+  --color-surface-container-lowest: #0f172a;
+  
+  --color-on-surface: #f8fafc;
+  --color-on-surface-variant: #cbd5e1;
+  --color-outline: #64748b;
+  --color-outline-variant: #334155;
+
+  --color-secondary-container: #1e293b;
+  --color-on-secondary-container: #e2e8f0;
+}
+
+.dark .glass-card {
+  background: rgba(30, 41, 59, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-color: #334155;
+  color: #f8fafc;
+}
+
+.dark .glass-panel {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #f8fafc;
+}
+
+.dark .bg-white {
+  background-color: #1e293b !important;
+  color: #f8fafc;
+}
+
+.dark .bg-\[\#F8FAFC\] {
+  background-color: #0f172a !important;
+}
+
+.dark .text-on-surface {
+  color: #f8fafc !important;
+}
+
+.dark .border-outline-variant\/30,
+.dark .border-outline-variant\/40,
+.dark .border-outline-variant\/50,
+.dark .border-outline-variant\/60,
+.dark .border-outline-variant\/70 {
+  border-color: rgba(51, 65, 85, 0.6) !important;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #475569;
+}
+

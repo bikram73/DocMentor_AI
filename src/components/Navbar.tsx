@@ -1,18 +1,22 @@
 import React from 'react';
-import { Search, Bell, Sparkles, Upload } from 'lucide-react';
+import { Search, Bell, Sparkles, Upload, Sun, Moon } from 'lucide-react';
 
 interface NavbarProps {
   onNewScan: () => void;
   activeTab: string;
   searchQuery: string;
   setSearchQuery: (q: string) => void;
+  darkMode?: boolean;
+  setDarkMode?: (val: boolean) => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ 
   onNewScan, 
   activeTab, 
   searchQuery, 
-  setSearchQuery 
+  setSearchQuery,
+  darkMode = false,
+  setDarkMode
 }) => {
   const getTabTitle = () => {
     switch(activeTab) {
@@ -63,6 +67,21 @@ export const Navbar: React.FC<NavbarProps> = ({
           <span>Upload File</span>
         </button>
 
+        {/* Dark / Light Mode Toggle Button */}
+        {setDarkMode && (
+          <button
+            onClick={() => setDarkMode(!darkMode)}
+            title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+            className="p-2 rounded-full text-on-surface-variant hover:bg-surface-container hover:text-primary transition-all flex items-center justify-center border border-outline-variant/30"
+          >
+            {darkMode ? (
+              <Sun className="w-5 h-5 text-amber-400 fill-amber-400/20" />
+            ) : (
+              <Moon className="w-5 h-5 text-slate-700 dark:text-slate-200" />
+            )}
+          </button>
+        )}
+
         <button className="relative p-2 rounded-full text-on-surface-variant hover:bg-surface-container transition-colors">
           <Bell className="w-5 h-5" />
           <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span>
@@ -72,3 +91,4 @@ export const Navbar: React.FC<NavbarProps> = ({
     </header>
   );
 };
+

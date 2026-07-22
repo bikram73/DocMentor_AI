@@ -12,7 +12,9 @@ import {
   RotateCw,
   Search,
   ChevronRight,
-  Bell
+  Bell,
+  Sun,
+  Moon
 } from 'lucide-react';
 
 interface UploadWorkspaceProps {
@@ -21,6 +23,8 @@ interface UploadWorkspaceProps {
   onUploadAndAnalyze: (text: string, type: string, imageBase64?: string) => Promise<void>;
   isAnalyzing: boolean;
   onNavigateTab?: (tab: string) => void;
+  darkMode?: boolean;
+  setDarkMode?: (val: boolean) => void;
 }
 
 export const UploadWorkspace: React.FC<UploadWorkspaceProps> = ({
@@ -28,7 +32,9 @@ export const UploadWorkspace: React.FC<UploadWorkspaceProps> = ({
   onSelectDoc,
   onUploadAndAnalyze,
   isAnalyzing,
-  onNavigateTab
+  onNavigateTab,
+  darkMode = false,
+  setDarkMode
 }) => {
   const [dragActive, setDragActive] = useState(false);
   const [pasteText, setOriginalText] = useState('');
@@ -114,6 +120,20 @@ export const UploadWorkspace: React.FC<UploadWorkspaceProps> = ({
               className="bg-transparent border-none focus:outline-none focus:ring-0 text-xs px-2 w-40 text-on-surface"
             />
           </div>
+
+          {setDarkMode && (
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+              className="p-2 rounded-full text-on-surface-variant hover:bg-surface-container hover:text-primary transition-all flex items-center justify-center border border-outline-variant/30"
+            >
+              {darkMode ? (
+                <Sun className="w-5 h-5 text-amber-400 fill-amber-400/20" />
+              ) : (
+                <Moon className="w-5 h-5 text-slate-700 dark:text-slate-200" />
+              )}
+            </button>
+          )}
 
           <button className="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-all">
             <Bell className="w-5 h-5" />

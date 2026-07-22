@@ -15,15 +15,24 @@ import {
   ArrowRight,
   MoreVertical,
   HelpCircle,
-  Bell
+  Bell,
+  Sun,
+  Moon
 } from 'lucide-react';
 
 interface LandingPageProps {
   onGetStarted: () => void;
   onNavigateTab: (tab: string) => void;
+  darkMode?: boolean;
+  setDarkMode?: (val: boolean) => void;
 }
 
-export const LandingPage: React.FC<LandingPageProps> = ({ onGetStarted, onNavigateTab }) => {
+export const LandingPage: React.FC<LandingPageProps> = ({ 
+  onGetStarted, 
+  onNavigateTab,
+  darkMode = false,
+  setDarkMode
+}) => {
   return (
     <div className="bg-surface text-on-surface font-sans selection:bg-primary/20 min-h-screen flex flex-col">
       
@@ -48,7 +57,21 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onGetStarted, onNaviga
           </nav>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
+          {setDarkMode && (
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+              className="p-2 rounded-full text-on-surface-variant hover:bg-surface-container hover:text-primary transition-all flex items-center justify-center border border-outline-variant/30"
+            >
+              {darkMode ? (
+                <Sun className="w-5 h-5 text-amber-400 fill-amber-400/20" />
+              ) : (
+                <Moon className="w-5 h-5 text-slate-700 dark:text-slate-200" />
+              )}
+            </button>
+          )}
+
           <button className="p-2 rounded-full text-on-surface-variant hover:bg-surface-container transition-colors">
             <Bell className="w-5 h-5" />
           </button>
