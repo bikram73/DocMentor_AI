@@ -22,10 +22,8 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const getTabTitle = () => {
     switch(activeTab) {
-      case 'chat': return 'Chat Session: Annual_Report_2025.pdf';
-      case 'summary': return 'Analysis Summary';
-      case 'key-points': return 'Key Insights Breakdown';
-      case 'quiz': return 'Interactive Quiz Generator';
+      case 'summary': return 'Analysis Summary & Insights';
+      case 'chat': return 'Clinical AI Discussion Session';
       case 'explain-terms': return 'Explain Terms & Medical Jargon';
       case 'translate': return 'Multi-Language Translation';
       case 'upload-workspace': return 'Upload Workspace & Files';

@@ -2,13 +2,10 @@ import React from 'react';
 import { 
   MessageSquare, 
   FileText, 
-  BarChart3, 
-  HelpCircle, 
   BookOpen, 
   Languages, 
   Upload, 
   Settings, 
-  Sparkles,
   Activity
 } from 'lucide-react';
 
@@ -30,13 +27,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
   onOpenUploadModal
 }) => {
   const navItems = [
-    { id: 'chat', label: 'Chat', icon: MessageSquare },
-    { id: 'summary', label: 'Summary', icon: FileText },
-    { id: 'key-points', label: 'Key Points', icon: BarChart3 },
-    { id: 'quiz', label: 'Quiz Generator', icon: HelpCircle },
-    { id: 'explain-terms', label: 'Explain Terms', icon: BookOpen },
-    { id: 'translate', label: 'Translate', icon: Languages },
-    { id: 'upload-workspace', label: 'Recent Workspace', icon: Upload, badge: `${documentCount}` },
+    { id: 'summary', label: 'Summary & Insights', icon: FileText },
+    { id: 'chat', label: 'Clinical AI Chat', icon: MessageSquare },
+    { id: 'explain-terms', label: 'Medical Terms Glossary', icon: BookOpen },
+    { id: 'translate', label: 'Language Translator', icon: Languages },
+    { id: 'upload-workspace', label: 'My Documents', icon: Upload, badge: `${documentCount}` },
     { id: 'settings', label: 'Settings', icon: Settings }
   ];
 

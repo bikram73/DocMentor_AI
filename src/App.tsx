@@ -6,8 +6,6 @@ import { Navbar } from './components/Navbar';
 import { Sidebar } from './components/Sidebar';
 import { SummaryView } from './components/SummaryView';
 import { ChatView } from './components/ChatView';
-import { KeyPointsView } from './components/KeyPointsView';
-import { QuizGeneratorView } from './components/QuizGeneratorView';
 import { ExplainTermsView } from './components/ExplainTermsView';
 import { TranslateView } from './components/TranslateView';
 import { UploadWorkspace } from './components/UploadWorkspace';
@@ -264,14 +262,6 @@ export default function App() {
               document={activeDoc}
               onSendMessage={handleSendMessage}
             />
-          )}
-
-          {activeTab === 'key-points' && (
-            <KeyPointsView />
-          )}
-
-          {activeTab === 'quiz' && (
-            <QuizGeneratorView />
           )}
 
           {activeTab === 'explain-terms' && (
