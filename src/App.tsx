@@ -288,7 +288,7 @@ export default function App() {
             <button onClick={() => alert('Terms of Service: DocMentor AI clinical decision support.')} className="hover:underline">Terms of Service</button>
             <button onClick={() => alert('Contact Support: support@docmentor.ai')} className="hover:underline">Contact Support</button>
           </div>
-          <p className="opacity-60">© 2025 DocMentor AI. Powered by Google Gemini 3.6 Flash.</p>
+          <p className="opacity-60">© 2026 DocMentor AI. Powered by Google Gemini 3.6 Flash.</p>
         </footer>
 
       </div>

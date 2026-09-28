@@ -347,7 +347,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
         </div>
 
         <div className="border-t border-slate-200 dark:border-slate-800 w-full max-w-6xl pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500 dark:text-slate-400 font-medium">
-          <span>© 2025 DocMentor AI. All rights reserved.</span>
+          <span>© 2026 DocMentor AI. All rights reserved.</span>
           <div className="flex gap-6">
             <button onClick={() => alert('Privacy Policy')} className="hover:text-primary transition-colors">Privacy Policy</button>
             <button onClick={() => alert('Terms of Service')} className="hover:text-primary transition-colors">Terms of Service</button>
