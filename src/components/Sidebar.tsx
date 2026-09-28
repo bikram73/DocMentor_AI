@@ -43,32 +43,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
   return (
     <aside className="h-screen w-[280px] fixed left-0 top-0 bg-surface-container-low border-r border-outline-variant flex flex-col p-4 gap-2 z-50 overflow-y-auto">
       
-      {/* Brand Header */}
-      <div 
-        onClick={() => setActiveTab('landing')}
-        className="flex items-center gap-3 px-2 py-3 mb-2 cursor-pointer group hover:opacity-95 transition-all"
-      >
-        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-600 via-blue-600 to-indigo-600 flex items-center justify-center text-white shadow-md shrink-0 group-hover:scale-105 transition-transform border border-white/20">
-          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6">
-            <path d="M30 25C30 22.2386 32.2386 20 35 20H55L70 35V75C70 77.7614 67.7614 80 65 80H35C32.2386 80 30 77.7614 30 75V25Z" fill="white" fillOpacity="0.2" stroke="white" strokeWidth="5" strokeLinejoin="round" />
-            <path d="M55 20V35H70" stroke="white" strokeWidth="5" strokeLinejoin="round" fill="none" />
-            <path d="M50 43V63M40 53H60" stroke="white" strokeWidth="7" strokeLinecap="round" />
-            <circle cx="70" cy="28" r="4.5" fill="#FDE047" />
-          </svg>
-        </div>
-        <div>
-          <div className="flex items-center gap-1.5">
-            <h1 className="text-xl font-black text-slate-900 dark:text-slate-100 leading-tight tracking-tight">DocMentor AI</h1>
-            <span className="text-[9px] px-1.5 py-0.2 font-bold rounded-full bg-primary/10 text-primary border border-primary/20">Pro</span>
-          </div>
-          <p className="text-xs text-slate-500 dark:text-slate-400 font-medium opacity-80">Document & Clinical Decision</p>
-        </div>
-      </div>
-
       {/* Primary CTA Upload Button */}
       <button 
         onClick={onOpenUploadModal}
-        className="w-full py-3 px-4 bg-primary text-on-primary rounded-xl font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-all active:scale-95 shadow-md shadow-primary/20 mb-3"
+        className="w-full py-3 px-4 bg-primary text-on-primary rounded-xl font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-all active:scale-95 shadow-md shadow-primary/20 mb-3 cursor-pointer"
       >
         <Upload className="w-5 h-5" />
         <span>Upload PDF</span>
