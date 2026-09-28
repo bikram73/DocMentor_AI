@@ -5,8 +5,7 @@ import {
   BookOpen, 
   Languages, 
   Upload, 
-  Settings, 
-  Activity
+  Settings
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -56,7 +55,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <button
               key={item.id}
               onClick={() => setActiveTab(item.id)}
-              className={`flex items-center justify-between px-3 py-2.5 rounded-xl font-medium text-sm transition-all text-left ${
+              className={`flex items-center justify-between px-3 py-2.5 rounded-xl font-medium text-sm transition-all text-left cursor-pointer ${
                 isActive
                   ? 'bg-secondary-container text-on-secondary-container font-bold shadow-xs'
                   : 'text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface'
@@ -75,20 +74,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
           );
         })}
       </nav>
-
-      {/* Patient Record Locker Quick Switcher */}
-      <div className="bg-white dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700/80 rounded-xl p-3 my-2 shadow-xs transition-colors">
-        <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-primary/10 text-primary font-bold text-xs flex items-center justify-center border border-primary/20 shrink-0">
-            EV
-          </div>
-          <div className="min-w-0 flex-1">
-            <p className="text-xs font-bold text-slate-800 dark:text-slate-100 truncate">Eleanor Vance</p>
-            <p className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">52 Yrs • Lab & MRI Active</p>
-          </div>
-          <Activity className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
-        </div>
-      </div>
 
     </aside>
   );

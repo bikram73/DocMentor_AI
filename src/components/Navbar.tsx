@@ -33,10 +33,10 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   return (
-    <header className="h-[72px] sticky top-0 z-40 flex items-center justify-between px-6 sm:px-8 bg-white/90 dark:bg-slate-900/90 backdrop-blur-lg border-b border-slate-200 dark:border-slate-800 shadow-xs transition-colors">
+    <header className="h-[72px] sticky top-0 z-40 flex items-center justify-between px-6 sm:px-8 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 shadow-xs transition-colors">
       
-      {/* Title & Context Logo */}
-      <div className="flex items-center gap-3">
+      {/* Left: Title & Context Logo */}
+      <div className="flex items-center gap-3 shrink-0">
         <div 
           onClick={() => onNavigateTab ? onNavigateTab('landing') : undefined}
           className="flex items-center gap-3 cursor-pointer group"
@@ -51,38 +51,40 @@ export const Navbar: React.FC<NavbarProps> = ({
               <circle cx="70" cy="28" r="4.5" fill="#FDE047" />
             </svg>
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col justify-center">
             <div className="flex items-center gap-1.5">
-              <span className="text-[11px] font-black text-primary tracking-wider uppercase leading-none">DocMentor AI</span>
-              <span className="text-[9px] px-1.5 py-0.2 font-bold rounded-full bg-primary/10 text-primary border border-primary/20">Pro</span>
+              <span className="text-[10px] font-black text-primary tracking-wider uppercase leading-none">DocMentor AI</span>
+              <span className="text-[9px] px-1.5 py-0.5 font-bold rounded-full bg-primary/10 text-primary border border-primary/20 leading-none">Pro</span>
             </div>
-            <h2 className="text-sm sm:text-base font-bold text-slate-900 dark:text-slate-100 truncate max-w-xs sm:max-w-md leading-snug">
+            <h2 className="text-sm sm:text-base font-bold text-slate-900 dark:text-slate-100 truncate max-w-[180px] sm:max-w-xs md:max-w-sm mt-0.5 leading-tight">
               {getTabTitle()}
             </h2>
           </div>
         </div>
       </div>
 
-      {/* Center Search Input */}
-      <div className="hidden md:flex items-center relative w-72 lg:w-96">
-        <Search className="w-4 h-4 absolute left-3.5 text-slate-400 pointer-events-none" />
-        <input 
-          type="text"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Search in document or metrics..."
-          className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full pl-10 pr-4 py-2 text-xs font-medium text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all placeholder:text-slate-400"
-        />
+      {/* Center: Search Input */}
+      <div className="hidden md:flex items-center justify-center flex-1 max-w-md mx-6">
+        <div className="relative w-full">
+          <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+          <input 
+            type="text" 
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search in document, findings, or metrics..."
+            className="w-full bg-slate-100/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-full pl-10 pr-4 py-2 text-xs font-medium text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all placeholder:text-slate-400"
+          />
+        </div>
       </div>
 
-      {/* Right User Actions */}
-      <div className="flex items-center gap-3 sm:gap-4">
+      {/* Right: User Actions */}
+      <div className="flex items-center gap-3 shrink-0">
         <button 
           onClick={onNewScan}
-          className="hidden sm:flex items-center gap-2 px-3.5 py-1.5 bg-primary/10 text-primary hover:bg-primary hover:text-white rounded-lg text-xs font-bold transition-all border border-primary/20"
+          className="flex items-center gap-2 px-3.5 py-2 bg-primary/10 text-primary hover:bg-primary hover:text-white rounded-xl text-xs font-bold transition-all border border-primary/20 cursor-pointer shadow-xs active:scale-95"
         >
           <Upload className="w-3.5 h-3.5" />
-          <span>Upload File</span>
+          <span className="hidden sm:inline">Upload File</span>
         </button>
 
         {/* Dark / Light Mode Toggle Button */}
@@ -90,12 +92,12 @@ export const Navbar: React.FC<NavbarProps> = ({
           <button
             onClick={() => setDarkMode(!darkMode)}
             title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-            className="p-2 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-primary transition-all flex items-center justify-center border border-slate-200 dark:border-slate-700 cursor-pointer"
+            className="w-9 h-9 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-primary transition-all flex items-center justify-center border border-slate-200 dark:border-slate-700 cursor-pointer shadow-xs active:scale-95"
           >
             {darkMode ? (
-              <Sun className="w-5 h-5 text-amber-400 fill-amber-400/20" />
+              <Sun className="w-4.5 h-4.5 text-amber-400 fill-amber-400/20" />
             ) : (
-              <Moon className="w-5 h-5 text-slate-700 dark:text-slate-200" />
+              <Moon className="w-4.5 h-4.5 text-slate-700 dark:text-slate-200" />
             )}
           </button>
         )}
