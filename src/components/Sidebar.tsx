@@ -1,5 +1,7 @@
 import React from 'react';
 import { 
+  Home,
+  ArrowLeft,
   MessageSquare, 
   FileText, 
   BookOpen, 
@@ -37,6 +39,20 @@ export const Sidebar: React.FC<SidebarProps> = ({
   return (
     <aside className="h-screen w-[280px] fixed left-0 top-0 bg-surface-container-low border-r border-outline-variant flex flex-col p-4 gap-2 z-50 overflow-y-auto">
       
+      {/* Return to Home Action Button */}
+      <button
+        onClick={() => setActiveTab('landing')}
+        className="w-full py-2.5 px-3 mb-1 rounded-xl font-semibold text-xs sm:text-sm text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary hover:bg-surface-container-high border border-outline-variant/60 flex items-center justify-between transition-all group cursor-pointer shadow-2xs active:scale-98"
+      >
+        <div className="flex items-center gap-2.5">
+          <div className="w-6 h-6 rounded-lg bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+            <Home className="w-3.5 h-3.5" />
+          </div>
+          <span>Return to Home</span>
+        </div>
+        <ArrowLeft className="w-3.5 h-3.5 text-slate-400 group-hover:text-primary group-hover:-translate-x-0.5 transition-transform" />
+      </button>
+
       {/* Primary CTA Upload Button */}
       <button 
         onClick={onOpenUploadModal}
