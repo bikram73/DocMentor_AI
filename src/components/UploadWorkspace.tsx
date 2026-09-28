@@ -155,7 +155,7 @@ export const UploadWorkspace: React.FC<UploadWorkspaceProps> = ({
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col transition-colors">
       
       {/* Top Navigation Bar */}
-      <nav className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-lg border-b border-slate-200 dark:border-slate-800 shadow-xs flex justify-between items-center w-full px-6 sm:px-10 py-4 sticky top-0 z-50">
+      <header className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-lg border-b border-slate-200 dark:border-slate-800 shadow-xs flex justify-between items-center w-full px-6 sm:px-10 py-4 sticky top-0 z-50 transition-colors">
         <div className="flex items-center gap-8">
           <div 
             onClick={() => onNavigateTab && onNavigateTab('landing')}
@@ -169,10 +169,10 @@ export const UploadWorkspace: React.FC<UploadWorkspaceProps> = ({
             </span>
           </div>
           <div className="hidden md:flex items-center gap-6 text-xs font-bold text-slate-600 dark:text-slate-300">
-            <button onClick={() => onNavigateTab && onNavigateTab('landing')} className="hover:text-primary transition-colors">Home</button>
-            <button onClick={() => onNavigateTab && onNavigateTab('summary')} className="hover:text-primary transition-colors">Features</button>
-            <button onClick={() => onNavigateTab && onNavigateTab('upload-workspace')} className="text-primary border-b-2 border-primary pb-0.5">How It Works</button>
-            <button onClick={() => onNavigateTab && onNavigateTab('settings')} className="hover:text-primary transition-colors">About</button>
+            <button onClick={() => onNavigateTab && onNavigateTab('landing')} className="hover:text-primary transition-colors cursor-pointer">Home</button>
+            <button onClick={() => onNavigateTab && onNavigateTab('summary')} className="hover:text-primary transition-colors cursor-pointer">Features</button>
+            <button onClick={() => onNavigateTab && onNavigateTab('upload-workspace')} className="text-primary border-b-2 border-primary pb-0.5 cursor-pointer">How It Works</button>
+            <button onClick={() => onNavigateTab && onNavigateTab('settings')} className="hover:text-primary transition-colors cursor-pointer">About</button>
           </div>
         </div>
 
@@ -204,13 +204,13 @@ export const UploadWorkspace: React.FC<UploadWorkspaceProps> = ({
 
           <button 
             onClick={() => fileInputRef.current?.click()}
-            className="bg-primary text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow-md shadow-primary/20 hover:opacity-90 transition-opacity flex items-center gap-2"
+            className="bg-primary text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow-md shadow-primary/20 hover:opacity-90 transition-opacity flex items-center gap-2 cursor-pointer"
           >
             <Upload className="w-4 h-4" />
             <span>Upload PDF</span>
           </button>
         </div>
-      </nav>
+      </header>
 
       {/* Main Container */}
       <main className="flex-1 flex flex-col items-center px-6 sm:px-10 py-10 gap-12 max-w-6xl mx-auto w-full">
